@@ -1,0 +1,64 @@
+//- index.jade
+extends ../layout.jade
+block content
+    section.bg-slider-block
+        ul.switchers
+            li
+                a.prev.arrow
+            li
+                a.next.arrow
+        ul.slider
+            each slide in bg_slider
+                li(style="background-image:url('#{slide.src}')")
+        ul.trim-container
+        //ul.thumb-menu
+        //    -var slides=[1,2,3]
+        //    -var textSlides=['Многостворчатые конструкции','накладки для входных дверей','Перегородки'];
+        //    each val,index in slides
+        //        li(style="width:#{100/slides.length}%")
+        //            if(index==5)
+        //                a.active(href="" style="background-image:url('./images/bg-slider/#{val}.jpg')")
+        //                    h2.title-slide
+        //                        span #{textSlides[index]}
+        //            else
+        //                a(href="" style="background-image:url('./images/bg-slider/#{val}.jpg')")
+        //                    h2.title-slide
+        //                        span #{textSlides[index]}
+    section.list-nav-categories
+        .container
+            ul
+                li
+                    a(href="")
+                        .wrapper-content
+                            span Crystal Lighting
+                        .wrapper-img
+                            img(src="./images/nav-categories/1.jpg")
+                li
+                    a(href="")
+                        .wrapper-content
+                            span Clocks
+                        .wrapper-img
+                            img(src="./images/nav-categories/2.jpg")
+                li
+                    a(href="")
+                        .wrapper-content
+                            span Crystal Tableware
+                        .wrapper-img
+                            img(src="./images/nav-categories/3.jpg")
+                li
+                    a(href="")
+                        .wrapper-content
+                            span Porcelain & China
+                        .wrapper-img
+                            img(src="./images/nav-categories/4.jpg")
+    section.content-block-main
+        .container
+            p
+                img(style="float:left" src="./images/content-img.jpg")
+            p  Although picking a light fixture might seem like a pretty standard task, today’s options make this once-easy decision more complicated. If you’re looking for your kitchen, you now have to decide: pendant or chandeplier? Track light or wall sconce? Cabinet or recessed lights? No matter how mundane it might seem, picking the right illumination is important. Some light fixtures cover very little ground and provide more of an ambient glow, while others shine from one corner of the room to another. Choosing the wrong fixture can lead to a poorly lit room or even an overly lit, washed-out space. Because of this, be sure to consider all the options below before taking your next lighting plunge. Pendant Lights
+
+            p one lightbulb, so they don’t cover as much ground; several are often used to cover more space. There are many styles, including drum pendants and globe pendants, making it easy to find one that will fit your decor. They work well when you’re trying to showcase a smaller, specific area, such as a kitchen island or a dining room table.
+            h2 Chandeliers
+            p Chandeliers have multiple lightbulbs combined in one unit to create a larger, more dramatic statement piece. Unlike pendants, they produce a stronger glow and therefore can often stand alone. Chandeliers are traditionally more elegant and more expensive than other fixtures, and therefore are used less frequently — you may see one in an entryway or a formal dining room.
+            h2 Ceiling Fans
+            p Primarily used for practicality as opposed to beauty, ceiling fans are a great way to cool a room down and brighten it up at the same time. They are often used in bedrooms, though they come in handy where there’s a lot of activity, including playrooms and home gyms. They also make great outdoor fixtures for a covered patio or sunroom.

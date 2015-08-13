@@ -1,0 +1,184 @@
+.footer
+  position:relative
+  z-index:0
+  height:595px
+  overflow:hidden
+  width:100%
+.wrapper-links-block
+  background-color:#000
+  font-size:0
+  .container
+    height:339px
+    display:flex
+    align-items:top
+  .block-links
+    padding-top:42px
+    margin-left:84px
+    &:first-child
+      margin-left:0
+    h1
+      color:#7f7f7f
+      text-transform:uppercase
+      ll(24px)
+    ul
+      margin-top:37px
+      li
+        margin-top:7px
+        &:first-child
+          margin-top:0
+        a
+          color:#b3b3b3
+          ll(16px)
+          text-decoration:none
+          tn(.5s)
+          &:hover
+            color:#e3b90a
+    &.contacts-block
+      margin-left:112px
+      > ul
+        li
+          margin-left:22px
+          a
+            color:#fff
+            position:relative
+            z-index:0
+        &:first-of-type
+          li
+            a
+              tn(.5s)
+              &:hover
+                color:#facb0c
+              &:after
+                content:"\f095";
+                position:absolute
+                z-index:1
+                top:50%
+                left:-18px
+                tt(0, -50%)
+                display:inline-block;
+                font:normal normal normal 16px / 1 FontAwesome;
+                font-size:inherit;
+                text-rendering:auto;
+                -webkit-font-smoothing:antialiased;
+                -moz-osx-font-smoothing:grayscale;
+            &:first-child
+              a
+                &:after
+                  left:-22px
+                  top:43%
+                  content:"\f003"
+        &:nth-of-type(2)
+          li
+            position:relative
+            z-index:0
+            &:after
+              color:#fff
+              content:"\f041";
+              position:absolute
+              z-index:1
+              top:0
+              left:-18px
+              display:inline-block;
+              font:normal normal normal 16px / 1 FontAwesome;
+              font-size:inherit;
+              text-rendering:auto;
+              -webkit-font-smoothing:antialiased;
+              -moz-osx-font-smoothing:grayscale;
+            span
+              margin-top:7px
+              color:#fff
+              display:block
+.footer-middle
+  background-color:#343434
+  .middle-block
+    width:490px
+    height:162px
+    display:table-cell
+    vertical-align:top
+    padding-top:42px
+    h1
+      color:#7f7f7f
+      ll(24px)
+      text-transform:uppercase
+    > ul
+      margin-top:22px
+      font-size:0
+      > li
+        margin-left:26px
+        &:first-child
+          margin-left:0
+        dibt()
+        a
+          tn(.5s)
+          font-size:30px
+          color:#fff
+          text-decoration:none
+          dibt()
+  .payment
+    > ul
+      > li
+        a
+          font-size:50px
+          &:hover
+            color:#facb0c
+  .connect
+    > ul
+      > li
+        a
+          &.fa-twitter
+            &:hover
+              color:#00acee
+          &.fa-linkedin
+            &:hover
+              color:#0274b3
+          &.fa-vk
+            &:hover
+              color:#4b73a4
+          &.fa-facebook-f
+            &:hover
+              color:#3a589e
+          &.fa-google-plus
+            &:hover
+              color:#dc4a38
+.footer-bottom
+  height:94px
+  background-color:#000
+  .container
+    after()
+  .copyright
+    position:relative
+    z-index:0
+    float:left
+    height:94px
+    lr(16px, 94px)
+    color:#7f7f7f
+    padding-left:35px
+    padding-top:1px
+    span
+      dibt()
+      position:absolute
+      z-index:0
+      color:#7f7f7f
+      lr(36px, 94px)
+      left:10px
+      top:50%
+      tt(-50%, -50%)
+  .firm-logo
+    margin-top:25px
+    display:block
+    text-decoration:none
+    white-space:nowrap
+    float:right
+    > div
+      dibt()
+      &:first-child
+        position:relative
+        z-index:0
+        margin-right:8px
+        text-align:right
+        top:-7px
+        span
+          display:block
+          color:#747474
+          font:12px / 12px Arial, sans-serif
+          margin-top:2px

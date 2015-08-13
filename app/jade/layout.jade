@@ -1,0 +1,21 @@
+doctype html
+//html(style="opacity:0")
+html
+    head
+        include ./includes/head.jade
+        include ./includes/mixins.jade
+    body(pointer-events-scroll ng-controller="PopupCtrl")
+        .wrapper.dNtoLoad
+            main.main
+                include ./includes/header.jade
+                block content
+        include ./includes/footer.jade
+        //button.up(move-up)
+        //include ./includes/popups.jade
+        //include ./includes/thanks.jade
+        //include ./includes/preloader.jade
+script(src="./scripts/vendors/preloadjs-0.6.1.min.js" defer)
+script(src="./scripts/vendors/snap.svg.js" defer)
+//script(src="./scripts/bundle.js" defer)
+script(src="http://localhost:8080/webpack-dev-server.js" defer)
+script(src="http://localhost:8080/bundle.js" defer)

@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<!--html(style="opacity:0")-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=1000">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="description" content="Description">
+    <meta name="keywords" content="Keywords">
+    <title>Touch of Europe</title>
+    <link rel="icon" type="image/png" href="./images/favicon.png">
+    <script async>var loadCSSFiles=function(){var e,t,a=["./styles/application.css"],n=document.getElementsByTagName("head")[0];for(t=0;t<a.length;t++)e=document.createElement("link"),e.rel="stylesheet",e.href=a[t],n.appendChild(e)},raf=requestAnimationFrame||mozRequestAnimationFrame||webkitRequestAnimationFrame||msRequestAnimationFrame;raf?(raf(loadCSSFiles)):window.addEventListener("load",loadCSSFiles);</script>
+  </head>
+  <body pointer-events-scroll ng-controller="PopupCtrl">
+    <div class="wrapper dNtoLoad">
+      <main class="main">
+        <header class="header">
+          <div class="header-top">
+            <div class="container"><a href="./" class="logo">Touch of Europe</a>
+              <div class="authentificition">
+                <!--a.sign-in(href="") Sign In-->
+                <!-- Последующие блоки a.private-office и ul.sub-links - выводить вместе--><a href="./private-office.html" class="private-office">Ivan</a>
+                <ul class="sub-links">
+                  <li><a href="./private-office.html">Edit profile</a></li>
+                  <li>
+                    <form method="post" action="#">
+                      <button>Sign out</button>
+                    </form>
+                  </li>
+                </ul>
+              </div>
+              <div class="mini-cart"><a href=""><span>0</span></a>
+                <!--если элементов больше 5, то добавляем класс div.inner-mini-cart-->
+                <div class="inner-mini-cart">
+                  <ul>
+                    <li><a href="./product-details.html" class="wrapper-img"><img src="./images/mini-cart/1.jpg"></a>
+                      <div class="product-info">
+                        <h2><a href="./product-details.html">MASIERO Drylight S12 Outdoor Chandelier</a></h2><span>Quantity: 1</span>
+                      </div>
+                    </li>
+                    <li><a href="./product-details.html" class="wrapper-img"><img src="./images/mini-cart/2.jpg"></a>
+                      <div class="product-info">
+                        <h2><a href="./product-details.html">MASIERO Drylight S12 Outdoor Chandelier</a></h2><span>Quantity: 1</span>
+                      </div>
+                    </li>
+                    <li><a href="./product-details.html" class="wrapper-img"><img src="./images/mini-cart/2.jpg"></a>
+                      <div class="product-info">
+                        <h2><a href="./product-details.html">MASIERO Drylight S12 Outdoor Chandelier</a></h2><span>Quantity: 1</span>
+                      </div>
+                    </li>
+                    <li><a href="./product-details.html" class="wrapper-img"><img src="./images/mini-cart/1.jpg"></a>
+                      <div class="product-info">
+                        <h2><a href="./product-details.html">MASIERO Drylight S12 Outdoor Chandelier</a></h2><span>Quantity: 1</span>
+                      </div>
+                    </li>
+                    <li><a href="./product-details.html" class="wrapper-img"><img src="./images/mini-cart/2.jpg"></a>
+                      <div class="product-info">
+                        <h2><a href="./product-details.html">MASIERO Drylight S12 Outdoor Chandelier</a></h2><span>Quantity: 1</span>
+                      </div>
+                    </li>
+                  </ul><a href="./cart.html" class="to-cart">View cart</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <nav class="nav">
+            <ul class="container">
+              <li>
+                <div class="sub-menu">
+                  <ul>
+                    <li><a href="" class="active">Modern</a></li>
+                    <li><a href="">Baskets</a></li>
+                    <li><a href="">Antique</a></li>
+                    <li><a href="">Classic</a></li>
+                    <li><a href="">Maria Theresa</a></li>
+                  </ul>
+                </div><a href="" class="active">Lighting</a>
+              </li>
+              <li>
+                <div class="sub-menu">
+                  <ul>
+                    <li><a href="">Modern</a></li>
+                    <li><a href="">Baskets</a></li>
+                    <li><a href="">Antique</a></li>
+                    <li><a href="">Classic</a></li>
+                    <li><a href="">Maria Theresa</a></li>
+                  </ul>
+                </div><a href="">Clocks</a>
+              </li>
+              <li>
+                <div class="sub-menu">
+                  <ul>
+                    <li><a href="">Modern</a></li>
+                    <li><a href="">Baskets</a></li>
+                    <li><a href="">Antique</a></li>
+                    <li><a href="">Classic</a></li>
+                    <li><a href="">Maria Theresa</a></li>
+                  </ul>
+                </div><a href="">Crystal Tableware</a>
+              </li>
+              <li>
+                <div class="sub-menu">
+                  <ul>
+                    <li><a href="">Modern</a></li>
+                    <li><a href="">Baskets</a></li>
+                    <li><a href="">Antique</a></li>
+                    <li><a href="">Classic</a></li>
+                    <li><a href="">Maria Theresa</a></li>
+                  </ul>
+                </div><a href="">Porcelain & China</a>
+              </li>
+              <li><a href="">About</a></li>
+              <li><a href="">Contact Us</a></li>
+            </ul>
+          </nav>
+        </header>
+        <section class="bg-slider-block">
+          <ul class="switchers">
+            <li><a class="prev arrow"></a></li>
+            <li><a class="next arrow"></a></li>
+          </ul>
+          <ul class="slider">
+            <li style="background-image:url('./images/bg-slider/1.jpg')"></li>
+            <li style="background-image:url('./images/bg-slider/1.jpg')"></li>
+            <li style="background-image:url('./images/bg-slider/1.jpg')"></li>
+          </ul>
+          <ul class="trim-container"></ul>
+          <!--ul.thumb-menu-->
+          <!--    -var slides=[1,2,3]-->
+          <!--    -var textSlides=['Многостворчатые конструкции','накладки для входных дверей','Перегородки'];-->
+          <!--    each val,index in slides-->
+          <!--        li(style="width:#{100/slides.length}%")-->
+          <!--            if(index==5)-->
+          <!--                a.active(href="" style="background-image:url('./images/bg-slider/#{val}.jpg')")-->
+          <!--                    h2.title-slide-->
+          <!--                        span #{textSlides[index]}-->
+          <!--            else-->
+          <!--                a(href="" style="background-image:url('./images/bg-slider/#{val}.jpg')")-->
+          <!--                    h2.title-slide-->
+          <!--                        span #{textSlides[index]}-->
+        </section>
+        <section class="list-nav-categories">
+          <div class="container">
+            <ul>
+              <li><a href="">
+                  <div class="wrapper-content"><span>Crystal Lighting</span></div>
+                  <div class="wrapper-img"><img src="./images/nav-categories/1.jpg"></div></a></li>
+              <li><a href="">
+                  <div class="wrapper-content"><span>Clocks</span></div>
+                  <div class="wrapper-img"><img src="./images/nav-categories/2.jpg"></div></a></li>
+              <li><a href="">
+                  <div class="wrapper-content"><span>Crystal Tableware</span></div>
+                  <div class="wrapper-img"><img src="./images/nav-categories/3.jpg"></div></a></li>
+              <li><a href="">
+                  <div class="wrapper-content"><span>Porcelain & China</span></div>
+                  <div class="wrapper-img"><img src="./images/nav-categories/4.jpg"></div></a></li>
+            </ul>
+          </div>
+        </section>
+        <section class="content-block-main">
+          <div class="container">
+            <p><img style="float:left" src="./images/content-img.jpg"></p>
+            <p> Although picking a light fixture might seem like a pretty standard task, today’s options make this once-easy decision more complicated. If you’re looking for your kitchen, you now have to decide: pendant or chandeplier? Track light or wall sconce? Cabinet or recessed lights? No matter how mundane it might seem, picking the right illumination is important. Some light fixtures cover very little ground and provide more of an ambient glow, while others shine from one corner of the room to another. Choosing the wrong fixture can lead to a poorly lit room or even an overly lit, washed-out space. Because of this, be sure to consider all the options below before taking your next lighting plunge. Pendant Lights</p>
+            <p>one lightbulb, so they don’t cover as much ground; several are often used to cover more space. There are many styles, including drum pendants and globe pendants, making it easy to find one that will fit your decor. They work well when you’re trying to showcase a smaller, specific area, such as a kitchen island or a dining room table.</p>
+            <h2>Chandeliers</h2>
+            <p>Chandeliers have multiple lightbulbs combined in one unit to create a larger, more dramatic statement piece. Unlike pendants, they produce a stronger glow and therefore can often stand alone. Chandeliers are traditionally more elegant and more expensive than other fixtures, and therefore are used less frequently — you may see one in an entryway or a formal dining room.</p>
+            <h2>Ceiling Fans</h2>
+            <p>Primarily used for practicality as opposed to beauty, ceiling fans are a great way to cool a room down and brighten it up at the same time. They are often used in bedrooms, though they come in handy where there’s a lot of activity, including playrooms and home gyms. They also make great outdoor fixtures for a covered patio or sunroom.</p>
+          </div>
+        </section>
+      </main>
+    </div>
+    <footer class="footer">
+      <section class="wrapper-links-block">
+        <div class="container">
+          <div class="block-links">
+            <h1>Company</h1>
+            <ul>
+              <li><a href="">About Houzz</a></li>
+              <li><a href="">In the News</a></li>
+              <li><a href="">Press Info</a></li>
+              <li><a href="">Careers</a></li>
+              <li><a href="">Contact Us</a></li>
+              <li><a href="">Terms of Use</a></li>
+              <li><a href="">Privacy Policy</a></li>
+            </ul>
+          </div>
+          <div class="block-links">
+            <h1>Explore houzz</h1>
+            <ul>
+              <li><a href="">Buttons & Badges</a></li>
+              <li><a href="">Mobile Apps</a></li>
+              <li><a href="">Advertise</a></li>
+              <li><a href="">For Professionals</a></li>
+              <li><a href="">Sell on Houzz</a></li>
+              <li><a href="">Write a Review</a></li>
+              <li><a href="">FAQs</a></li>
+            </ul>
+          </div>
+          <div class="block-links contacts-block">
+            <h1>Contact</h1>
+            <ul>
+              <li><a href="mailto:info@lightingdeluxe.com">info@lightingdeluxe.com</a></li>
+              <li><a href="tel:+1-800-667-452">Australia: 1-800-667-452</a></li>
+              <li><a href="tel:+1-888-642-8669">USA / Canada: 1-888-642-8669</a></li>
+              <li><a href="tel:+49-351-84710961">+49-351-84710961</a></li>
+            </ul>
+            <ul>
+              <li><span>Lichtkultur GmbH</span><span>Flösserstr. 19a</span><span>01139 Dresden</span></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+      <section class="footer-middle">
+        <div class="container">
+          <div class="middle-block payment">
+            <h1>Payment Methods</h1>
+            <ul>
+              <li><a href="" class="fa fa-cc-paypal"></a></li>
+            </ul>
+          </div>
+          <div class="middle-block connect">
+            <h1>Connect with us</h1>
+            <ul>
+              <li><a href="" class="fa fa-twitter"></a></li>
+              <li><a href="" class="fa fa-linkedin"></a></li>
+              <li><a href="" class="fa fa-vk"></a></li>
+              <li><a href="" class="fa fa-facebook-f"></a></li>
+              <li><a href="" class="fa fa-google-plus"></a></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+      <section class="footer-bottom">
+        <div class="container">
+          <div class="copyright"><span>©</span>2015 «Touch of Europe»</div><a href="http://tutmee.ru" class="firm-logo">
+            <div><span>Создание дизайна</span><span>и разработка сайтов</span><span>LTD Tutmee.ru</span></div>
+            <div><img src="./images/firm-logo.png" width="214" height="68"></div></a>
+        </div>
+      </section>
+    </footer>
+    <!--button.up(move-up)-->
+    <!--include ./includes/popups.jade-->
+    <!--include ./includes/thanks.jade-->
+    <!--include ./includes/preloader.jade-->
+  </body>
+</html>
+<script src="./scripts/vendors/preloadjs-0.6.1.min.js" defer></script>
+<script src="./scripts/vendors/snap.svg.js" defer></script>
+<!--script(src="./scripts/bundle.js" defer)-->
+<script src="http://localhost:8080/webpack-dev-server.js" defer></script>
+<script src="http://localhost:8080/bundle.js" defer></script>
