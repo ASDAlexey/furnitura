@@ -1,0 +1,57 @@
+.frame
+  position: relative;
+  font-size: 0;
+  line-height: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  > .slides
+    width: 100%
+    display: inline-block;
+    font-size: 0
+    > li
+      position: relative;
+      display: inline-block;
+      width: 100%
+      background-repeat: no-repeat
+      background-position: center center
+      background-size cover
+      height: 596px
+
+.slider .js_prev, .slider .js_next
+  cursor: pointer;
+  display: block;
+  width: 82px;
+  height: 81px;
+  background-repeat: no-repeat;
+  background-position: center top;
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  transform: translate(0, -50%);
+
+.slider
+  position: relative
+  z-index: 0
+  .js_prev, .js_next
+    opacity: .4
+    tn(.5s)
+    &:hover
+      opacity: 1
+  .js_prev
+    sprite($arrow_left)
+    left: 60px
+  .js_next
+    sprite($arrow_right)
+    right: 60px
+
+.multislides
+  .frame
+    margin: 0 auto
+    max-width 1000px
+    > .slides
+      > li
+        height: auto
+
+
+
+

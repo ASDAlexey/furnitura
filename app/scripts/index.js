@@ -1,6 +1,30 @@
 import './plugins/vinilla';
 import './vendors/cssua';
-import './plugins/bg-slider';
+import lory from './plugins/lory';
+document.addEventListener('DOMContentLoaded', function () {
+    var percentage = document.querySelectorAll('.js_percentage');
+    percentage.forEach((element, index)=> {
+        var lorySlider = lory(element, {
+            infinite: 1
+        });
+        var mainInterval;
+        var autoScroll = ()=> {
+            mainInterval = setInterval((function () {
+                lorySlider.next();
+            }), 5000);
+        };
+        autoScroll();
+        element.querySelectorAll('.arrows-bg-slider').forEach((el, i)=> {
+            el.addEventListener('click', ()=> {
+                clearInterval(mainInterval);
+                autoScroll();
+            });
+        });
+    });
+
+
+});
+//import './plugins/bg-slider';
 
 //import 'angular';
 //import 'angular-resource';

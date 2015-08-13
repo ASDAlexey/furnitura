@@ -1,0 +1,144 @@
+.popular-products
+  background-color: #000
+  .title
+    text-transform: uppercase
+    color: #fff
+    text-align: center
+    lt(30px)
+    padding: 70px 0
+
+.frame
+  .list-products
+    .item-product
+      width: 235px
+
+.list-products
+  > li
+    margin: 70px 0
+    position: relative
+    z-index: 0
+    padding: 20px 20px 97px 20px
+    color: #000
+    width: 235px
+    border: 1px solid #000
+    tn(.5s)
+    &:nth-of-type(4n-3)
+      &:before
+        content ''
+        position: absolute
+        z-index: 1
+        left: 50%
+        bottom: -70px
+        height: 1px
+        width: 3000px
+        tt(-50%, 0)
+        background-color: #4d4d4d
+    &:nth-child(-n+4)
+      margin-top: 0
+    &:hover
+      border-color: #818181
+      .wrapper-adv
+        .add-to-cart, .more
+          opacity: 1
+          top: 50%
+    .wrapper-adv
+      position: absolute
+      z-index: 1
+      display: block
+      width: 100%
+      height: 312px
+      left: 0
+      top: 0
+      .add-to-cart
+        tn(.5s)
+        opacity: 0
+        width: 70px
+        height: 70px
+        background-color: #facb0c
+        position: absolute
+        z-index: 1
+        top: 30%
+        left: 50%
+        margin-top: -25px
+        margin-left: -25px
+        &:after
+          font-size: 20px !important
+          color: #fff
+          display: inline-block;
+          font: normal normal normal 14px / 1 FontAwesome;
+          font-size: inherit;
+          text-rendering: auto;
+          -webkit-font-smoothing: antialiased;
+          -moz-osx-font-smoothing: grayscale;
+          content: "\f07a"
+          aa(1)
+      .more
+        tn(.5s)
+        opacity: 0
+        white-space nowrap
+        lr(18px)
+        text-decoration: none
+        margin-top: 67px
+        color: #fff
+        position: absolute
+        z-index: 1
+        top: 70%
+        left: 50%
+        margin-left: -25px
+    .wrapper-img
+      display: block
+      width: 100%
+      height: 312px
+      position: relative
+      z-index: 0
+      text-decoration: none
+      &:after
+        content: ""
+        position: absolute
+        z-index: 1
+        bottom: 0
+        left: 50%
+        margin-left: -55px
+        width: 110px
+        height: 1px
+        background-color: #4d4d4d
+      img
+        aa(1)
+        max-width 95%
+        max-height 95%
+    h2, p
+      a
+        text-decoration: none
+        color: #b2b2b2
+        lr(16px)
+    h2
+      margin-top: 32px
+      margin-bottom: 8px
+    p
+      margin-bottom: 32px
+    .price-block
+      width: calc(100% - 40px)
+      position: absolute
+      z-index: 1
+      left: 20px
+      bottom: 20px
+      display: flex
+      justify-content space-between
+      > li
+        width: 84px
+        span
+          display: block
+          &:first-child
+            color: #7f7f7f
+            margin-bottom: 9px
+            text-transform: uppercase
+            lr()
+          &:nth-child(2)
+            margin-bottom: 6px
+            padding: 5px 9px 7px
+            lr(20px)
+            color: #000
+            background-color: #808080
+          &:nth-child(3)
+            color: #facb0c
+            lr(16px)

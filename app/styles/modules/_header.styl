@@ -1,264 +1,269 @@
 .header
-  position:fixed
-  z-index:10
-  left:0
-  top:0
-  width:100%
+  position: fixed
+  z-index: 10
+  left: 0
+  top: 0
+  width: 100%
+  border-bottom: 1px solid #b2b2b2
   .header-top
-    position:relative
-    z-index:1
-    background-color:#000
-    height:39px
+    position: relative
+    z-index: 1
+    background-color: #000
+    height: 39px
     .container
       after()
     .mini-cart, .authentificition
-      float:right
+      float: right
     .mini-cart
-      position:relative
-      z-index:0
+      position: relative
+      z-index: 0
       &:hover
         .inner-mini-cart
           max-height 512px
-          border-color:#818181
+          border-color: #818181
           &.scroll
             overflow auto
       .inner-mini-cart
         tn(.5s)
         max-height 0
         overflow hidden
-        background-color:#000
-        position:absolute
-        z-index:1
-        top:37px
-        right:0
-        padding:0 24px
-        width:335px
-        border:1px solid #000
-        border-top:none
+        background-color: #000
+        position: absolute
+        z-index: 1
+        top: 37px
+        right: 0
+        padding: 0 24px
+        width: 335px
+        border: 1px solid #000
+        border-top: none
         .to-cart
-          margin:28px 0 24px
+          margin: 28px 0 24px
           tn(.5s)
-          text-align:center
-          color:#000
-          display:block
-          background-color:#facb0c
-          height:32px
-          text-decoration:none
+          text-align: center
+          color: #000
+          display: block
+          background-color: #facb0c
+          height: 32px
+          text-decoration: none
           ll(24px, 32px)
           &:hover
-            background-color:#fedb4f
+            background-color: #fedb4f
         > ul
-          margin-top:24px
-          display:table
-          width:100%
+          margin-top: 24px
+          display: table
+          width: 100%
           > li
-            display:table-row
-            width:100%
-            padding-bottom:7px
+            display: table-row
+            width: 100%
+            padding-bottom: 7px
             > *
-              display:table-cell
-              vertical-align:middle
-              border-bottom:1px solid #484848
+              display: table-cell
+              vertical-align: middle
+              border-bottom: 1px solid #484848
             .wrapper-img
-              width:88px
-              height:80px
-              position:relative
-              z-index:0
+              width: 88px
+              height: 80px
+              position: relative
+              z-index: 0
               img
                 aa(1)
                 max-width 95%
                 max-height 95%
             .product-info
               a
-                text-decoration:none
-                color:#b4b4b4
+                text-decoration: none
+                color: #b4b4b4
                 ll(16px, 1.3)
                 tn(.5s)
                 &:hover
-                  color:#fff
+                  color: #fff
               h2, span
-                color:#b4b4b4
+                color: #b4b4b4
                 ll(16px, 1.3)
               span
-                margin-top:3px
-                display:block
+                margin-top: 3px
+                display: block
                 ll(16px, 1.3)
       > a
-        display:block
-        width:45px
-        height:39px
-        background-color:#facb0c
+        display: block
+        width: 45px
+        height: 39px
+        background-color: #facb0c
         tn(.5s)
-        position:relative
-        z-index:2
+        position: relative
+        z-index: 2
         &:hover
-          background-color:#fedb4f
+          background-color: #fedb4f
         span
           white-space nowrap
-          display:block
+          display: block
           aa(1)
-          text-align:center
-          color:#000
+          text-align: center
+          color: #000
           lr(14px)
           &:before
-            display:inline-block;
-            font:normal normal normal 14px / 1 FontAwesome;
-            font-size:inherit;
-            text-rendering:auto;
-            -webkit-font-smoothing:antialiased;
-            -moz-osx-font-smoothing:grayscale;
-            content:"\f218"
-            margin-right:4px
+            display: inline-block;
+            font: normal normal normal 14px / 1 FontAwesome;
+            font-size: inherit;
+            text-rendering: auto;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            content: "\f218"
+            margin-right: 4px
     .authentificition
-      margin-left:34px
-      position:relative
-      z-index:0
+      margin-left: 34px
+      position: relative
+      z-index: 0
       &:hover
         .private-office
           + .sub-links
             max-height 96px
       .sub-links
         tn(.5s)
-        overflow:hidden
+        overflow: hidden
         max-height 0
-        position:absolute
-        z-index:1
-        top:39px
-        right:0
+        position: absolute
+        z-index: 1
+        top: 39px
+        right: 0
         > li
           a, button
-            text-decoration:none
-            display:block
-            width:122px
-            height:48px
-            background-color:#facb0c
-            text-align:center
-            color:#000
+            text-decoration: none
+            display: block
+            width: 122px
+            height: 48px
+            background-color: #facb0c
+            text-align: center
+            color: #000
             ll(16px, 48px)
             tn(.5s)
             &:hover
-              background-color:#fedb4f
+              background-color: #fedb4f
       a, button
-        display:block
-        height:39px
-        position:relative
-        z-index:0
-        text-decoration:none
-        color:#c1c1c1
+        display: block
+        height: 39px
+        position: relative
+        z-index: 0
+        text-decoration: none
+        color: #c1c1c1
         tn(.5s)
-        line-height:39px
+        line-height: 39px
         &:after
-          color:#facb0c
-          display:inline-block;
-          font:normal normal normal 14px / 1 FontAwesome;
-          font-size:inherit;
-          text-rendering:auto;
-          -webkit-font-smoothing:antialiased;
-          -moz-osx-font-smoothing:grayscale;
-          content:""
-          position:absolute
-          z-index:1
-          top:50%
-          left:-21px
+          color: #facb0c
+          display: inline-block;
+          font: normal normal normal 14px / 1 FontAwesome;
+          font-size: inherit;
+          text-rendering: auto;
+          -webkit-font-smoothing: antialiased;
+          -moz-osx-font-smoothing: grayscale;
+          content: ""
+          position: absolute
+          z-index: 1
+          top: 50%
+          left: -21px
           tt(0, -50%)
         &:hover
-          color:#facb0c
+          color: #facb0c
         &.sign-in
           &:after
-            content:"\f090"
+            content: "\f090"
         &.private-office
           &:after
-            content:"\f007"
+            content: "\f007"
     .logo
-      text-decoration:none
-      float:left
-      margin-top:5px
-      color:#fefefe
+      text-decoration: none
+      float: left
+      margin-top: 5px
+      color: #fefefe
       ll(30px)
+
 .nav
-  background-color:#fff
-  > ul
-    padding:20px
-    font-size:0
-    position:relative
-    z-index:0
-    > li
-      dibt()
-      margin-left:48px
-      &:hover
+  background-color: #fff
+  .container
+    position: relative
+    z-index: 0
+    > ul
+      padding: 20px 20px 20px 0
+      font-size: 0
+      position: relative
+      z-index: 0
+      > li
+        dibt()
+        margin-left: 48px
+        &:hover
+          .sub-menu
+            max-height 224px
+            + a
+              &:before
+                margin-top: -1px
+                transform: scale(1, -1)
+        &:first-child
+          margin-left: 0
         .sub-menu
-          max-height 224px
+          overflow: hidden
+          tn(1.4s)
+          max-height 0
+          background-color: #facb0c
+          width: 1920px
+          position: absolute
+          z-index: 1
+          left: 50%
+          margin-left: -960px
+          top: 56px
           + a
             &:before
-              margin-top:-1px
-              transform:scale(1, -1)
-      &:first-child
-        margin-left:0
-      .sub-menu
-        overflow:hidden
-        tn(1.4s)
-        max-height 0
-        background-color:#facb0c
-        width:1920px
-        position:absolute
-        z-index:1
-        left:50%
-        margin-left:-960px
-        top:61px
-        + a
+              display: block
+          > ul
+            margin: 0 auto
+            width: 1000px
+            padding: 0 20px
+            font-size: 0
+            > li
+              margin-left: 66px
+              dibt()
+              padding: 47px 0 41px
+              &:first-child
+                margin-left: 0
+              > a
+                tn(.5s)
+                ll(24px)
+                text-transform: uppercase
+                color: #000
+                text-decoration: none
+                &:hover
+                  color: #7f7f7f
+                &.active
+                  color: #fff
+                  font-weight 700
+        > a
+          text-decoration: none
+          color: #000
+          position: relative
+          z-index: 0
           &:before
-            display:block
-        > ul
-          margin:0 auto
-          width:1000px
-          padding:0 20px
-          font-size:0
-          > li
-            margin-left:66px
-            dibt()
-            padding:47px 0 41px
-            &:first-child
-              margin-left:0
-            > a
-              tn(.5s)
-              ll(24px)
-              text-transform:uppercase
-              color:#000
-              text-decoration:none
-              &:hover
-                color:#7f7f7f
-              &.active
-                color:#fff
-                font-weight 700
-      > a
-        text-decoration:none
-        color:#000
-        position:relative
-        z-index:0
-        &:before
-          display:none
-          tn(.5s)
-          content:''
-          position:absolute
-          z-index:1
-          margin-top:1px
-          top:50%
-          right:-16px
-          tt(0, -50%)
-          sprite($nav_arrow)
-        &:after
-          display:block
-          content:''
-          position:absolute
-          z-index:1
-          bottom:-10px
-          left:0
-          width:0
-          tn(.5s)
-          background-color:#facb0c
-          height:2px
-        &:hover, &.active
+            display: none
+            tn(.5s)
+            content: ''
+            position: absolute
+            z-index: 1
+            margin-top: 1px
+            top: 50%
+            right: -16px
+            tt(0, -50%)
+            sprite($nav_arrow)
           &:after
-            width:100%
-        &.active
-          color:#7f7f7f
+            display: block
+            content: ''
+            position: absolute
+            z-index: 1
+            bottom: -10px
+            left: 0
+            width: 0
+            tn(.5s)
+            background-color: #facb0c
+            height: 2px
+          &:hover, &.active
+            &:after
+              width: 100%
+          &.active
+            color: #7f7f7f

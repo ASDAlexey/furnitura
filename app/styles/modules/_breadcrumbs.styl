@@ -1,0 +1,42 @@
+.wrapper-breadcrumbs
+  margin: 31px auto 71px
+  .breadcrumbs
+    font-size: 0
+    > li
+      margin-left: 14px
+      dibt()
+      position: relative
+      z-index: 0
+      &:after
+        lr(14px)
+        content: ">"
+        position: absolute
+        z-index: 1
+        top: 55%
+        right: -10px
+        tt(0, -50%)
+        color: #818181
+      &:last-child
+        &:after
+          display: none
+      &:first-child
+        margin-left: 0
+        a, span
+          font-size: 14px
+          color: #7e7e7e
+          display: inline-block;
+          font: normal normal normal 14px / 1 FontAwesome;
+          font-size: inherit;
+          text-rendering: auto;
+          -webkit-font-smoothing: antialiased;
+          -moz-osx-font-smoothing: grayscale;
+          &:before
+            content: "\f015"
+      &:not(:first-child)
+        > span, > a
+          lr()
+      > a
+        text-decoration: none
+        color: #7e7e7e
+      > span
+        color: #000
