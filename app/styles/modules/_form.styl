@@ -1,0 +1,193 @@
+.form-validate
+  > div
+    margin-top: 20px
+    position: relative
+    z-index: 0
+    &:first-child
+      margin-top: 24px
+      input:not([type="checkbox"])
+        padding-left: 63px
+    &:nth-child(2)
+      input:not([type="checkbox"])
+        padding-left: 63px
+    &:nth-child(3)
+      input:not([type="checkbox"])
+        padding-left: 73px
+    &:nth-child(4)
+      textarea
+        padding-left: 90px
+    input:not([type="checkbox"]), textarea
+      + label
+        position: absolute
+        z-index: 1
+        left: 0
+        top: 50%
+        tt(0, -50%)
+        color: #a2a2a2
+        padding-left: 15px
+        span
+          position: relative
+          z-index: 1
+          color: #aeaeae
+        &:after, &:before
+          content: ''
+          position: absolute
+          z-index: 0
+          left: 0
+          width: 444px
+          transform-origin: 50% 100%
+          transition: transform 0.3s
+        &:after
+          top: 26px
+          height: 1px
+          background: #3f3f3f
+        &:before
+          bottom: -62%
+          height: 38px
+          background: rgba(#3f3f3f, .7)
+          transform: perspective(1000px) rotate3d(1, 0, 0, 90deg)
+    input:not([type="checkbox"]), textarea
+      position: relative
+      z-index: 2
+      width: 100%
+      height: 38px
+      ll(18px, 38px)
+      color: #fff
+      &:focus + label:before
+        transform: perspective(1000px) rotate3d(1, 0, 0, 0deg) !important
+    textarea
+      height: 200px
+      background: none
+      border none
+      resize none
+      padding-top: 9px
+      line-height: 15px
+      + label
+        top: 15px
+        &:after
+          top: 194px
+          height: 1px
+          background: #3f3f3f
+        &:before
+          bottom: -178px
+          height: 200px
+          background: rgba(#3f3f3f, .7)
+          transform: perspective(1000px) rotate3d(1, 0, 0, 90deg)
+    &.wrapper-send
+      text-align: right
+      .send
+        padding-top: 4px
+        dibt()
+        background-color: #facb0c
+        width: 207px
+        height: 34px
+        text-align: center
+        tn(.5s)
+        &:hover
+          background-color: #ffe26b
+        span
+          dibt()
+          margin-left: 36px
+          ll(24px)
+          color: #000
+          position: relative
+          z-index: 0
+          &:after
+            margin-top: -1px
+            color: #fff
+            content: "\f1d8"
+            position: absolute
+            z-index: 1
+            top: 50%
+            left: -36px
+            tt(0, -50%)
+            faw(20px)
+
+.auth-page
+  .form-validate
+    width: 561px
+    margin: 0 auto
+    background-color: #000
+    padding: 90px 105px
+    label
+      &:before, &:after
+        width: 351px !important
+    > div
+      &:first-child
+        input:not([type="checkbox"])
+          padding-left: 152px
+      &:nth-child(2)
+        input:not([type="checkbox"])
+          padding-left: 89px
+      &.wrapper-send
+        after()
+        .wrapper-check-sign
+          float: left
+          input[type="checkbox"]
+            display: none
+            position: absolute
+            z-index: 0
+            &:checked
+              + label
+                span
+                  &:after
+                    opacity: 1
+          label
+            cursor:pointer
+            dibt()
+            margin: 11px 0 0 48px
+            color: #fff
+            ll(16px)
+            position: relative
+            z-index: 0
+            span
+              position: absolute
+              z-index: 1
+              margin-top: -1px
+              left: -36px
+              top: 50%
+              tt(0, -50%)
+              width: 24px
+              height: 24px
+              dibt()
+              border: 1px solid #808080
+              &:after
+                tn(.5s)
+                content: "\f00c"
+                color: #facb0c
+                faw(15px)
+                aa(1)
+                opacity: 0
+        .send
+          width: auto
+          padding-left: 20px
+          padding-right: 20px
+          span
+            margin-left: 0
+            &:after
+              display: none
+  .link-to-auth
+    width: 561px
+    margin: 23px auto
+    text-align: center
+    p
+      color: #000
+      ll(18px)
+    a
+      dibt()
+      margin-top: 13px
+      color: #7f7f7f
+      ll(24px)
+      text-decoration: none
+      position: relative
+      z-index: 0
+      margin-right: 20px
+      &:after
+        content: "\f178"
+        position: absolute
+        z-index: 1
+        top: 50%
+        right: -25px
+        tt(0, -50%)
+        faw(14px)
+        color: #808080

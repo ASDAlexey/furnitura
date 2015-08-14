@@ -20,11 +20,31 @@
     padding: 20px 20px 97px 20px
     color: #000
     width: 235px
-    border: 1px solid #000
     tn(.5s)
+    &:hover
+      &:after, &:before
+        transform: scale(1)
+    &:after
+      tn(.5s)
+      border-right: 1px solid #818181
+      border-left: 1px solid #818181
+      transform: scale(1, 0)
+    &:before
+      tn(.5s)
+      border-top: 1px solid #818181
+      border-bottom: 1px solid #818181
+      transform: scale(0, 1)
+    &:after, &:before
+      position: absolute
+      z-index: 3
+      left: 0
+      top: 0
+      content ''
+      width: 100%
+      height: 100%
     &:nth-of-type(4n-3)
-      &:before
-        content ''
+      > span
+        display: block
         position: absolute
         z-index: 1
         left: 50%
@@ -57,7 +77,7 @@
         background-color: #facb0c
         position: absolute
         z-index: 1
-        top: 30%
+        top: 40%
         left: 50%
         margin-top: -25px
         margin-left: -25px
@@ -82,7 +102,7 @@
         color: #fff
         position: absolute
         z-index: 1
-        top: 70%
+        top: 60%
         left: 50%
         margin-left: -25px
     .wrapper-img
@@ -126,6 +146,10 @@
       justify-content space-between
       > li
         width: 84px
+        &:nth-child(2)
+          span
+            &:nth-child(2)
+              background-color: #fff
         span
           display: block
           &:first-child
@@ -134,11 +158,13 @@
             text-transform: uppercase
             lr()
           &:nth-child(2)
+            white-space nowrap
             margin-bottom: 6px
-            padding: 5px 9px 7px
+            padding: 5px 6px 7px
             lr(20px)
             color: #000
             background-color: #808080
           &:nth-child(3)
+            white-space nowrap
             color: #facb0c
             lr(16px)

@@ -1,0 +1,19 @@
+//- index.jade
+extends ../layout.jade
+block breadcrumbs
+    +breadcrumbs(['', 'About'])
+block content
+    section.block-content
+        .container
+            .left-block
+                img(src="./images/about.jpg")
+            .text
+                h1 Welcome to ...
+                p Houzz started with a house.
+                p When founders Adi and Alon remodeled their home, they started the way these projects often do: with a tall stack of magazines and referrals for home professionals from people they knew. But after those piles of torn out pages failed to make their dream a reality, they felt stuck. There had to be a better way.
+                p So they built Houzz. A place to browse and save beautiful home photos. A place to find the right design and construction professionals. A place to connect with others who have been there too. Houzz started as a side project but has become a community of more than 30 million homeowners, home design enthusiasts and home improvement professionals—across the country and around the world.
+                p Whether you are starting a complete kitchen remodel or just looking for the perfect bedside table, the Houzz community of homeowners and professionals is here to help. And when you are ready to start your project, Houzz is the best way to get inspired, discover products and to find and collaborate with the perfect architect, designer or contractor.
+    section.video-block
+        h1.title Stories from US
+        .wrapper-video
+            iframe(id='video' width="960" height="550" src="//www.youtube.com/embed/MGEzSJIFicY?controls=0;autoplay=0;showinfo=0;loop=1" frameborder="0" allowfullscreen)

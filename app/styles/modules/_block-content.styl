@@ -1,0 +1,96 @@
+.block-content
+  background-color: #000
+  &.contacts
+    padding: 78px 0
+    .left-block
+      border-right: 1px solid #4c4c4c
+    .text
+      margin: 0
+      padding-left: 36px
+  .container
+    display: flex
+  .left-block
+    width: 50%
+    img
+      display: block
+    h1
+      ll(30px)
+      padding-bottom: 35px
+      color: #fff
+      text-transform: uppercase
+    > ul
+      > li
+        margin-left: 22px
+        margin-bottom: 24px
+        a
+          text-decoration: none
+          color: #facb0c
+          tn(.5s)
+          &:hover
+            color: #ffe26b
+        span
+          color: #fff
+        a, span
+          position: relative
+          z-index: 0
+          &:after
+            position: absolute
+            z-index: 1
+            top: 50%
+            tt(0, -50%)
+            margin-top: 1px
+            font: normal normal normal 14px / 1 FontAwesome;
+        &:first-child
+          margin-bottom: 26px
+          span
+            &:after
+              content: "\f041"
+              left: -15px
+        &:nth-child(2), &:nth-child(3), &:nth-child(4)
+          margin-bottom: 8px
+          a
+            &:after
+              content: "\f095"
+              left: -15px
+        &:nth-child(5)
+          a
+            &:after
+              content: "\f003"
+              left: -19px
+        &:nth-child(6)
+          a
+            &:after
+              content: "\f17e"
+              left: -19px
+        &:nth-child(7)
+          span
+            &:after
+              content: "\f017"
+              left: -20px
+  .text
+    width: 50%
+    margin-top: auto
+    margin-bottom: auto
+    margin-left: 33px
+    dibt()
+    h1
+      color: #fff
+      text-transform: uppercase
+      ll(30px)
+      margin-bottom: 16px
+    p
+      color: #fff
+      line-height: 1.3
+
+.video-block
+  .title
+    text-align: center
+    color: #000
+    text-transform: uppercase
+    padding: 68px 0 35px
+    ll(30px)
+  .wrapper-video
+    text-align: center
+    margin-bottom: 105px
+    iframe
+      dibt()

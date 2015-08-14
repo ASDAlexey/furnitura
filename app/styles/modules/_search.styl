@@ -2,15 +2,21 @@
   float: none
   position: absolute
   z-index: 4
-  top: 3px
-  right: 9px
+  top: 6px
+  right: 18px
   font-size: 0
+  .form-validate>div:first-child input:not([type=checkbox])
+    padding-left: 10px
   span
     aa(1)
   .send
     width: 42px
     height: 42px
-  &:hover
+  input[type="text"]
+    color: #000 !important
+  .form-validate > div:first-child
+    margin-top: 4px !important
+  &:hover, &.active
     .wrapper-search-block
       width: 965px
     .send
@@ -26,7 +32,7 @@
     color: #000
     position: absolute
     z-index: 0
-    top: 11px
+    top: 13px
     right: -26px
     opacity: 0
     tn(.5s)
@@ -34,7 +40,7 @@
     font-size: 20px
     position: absolute
     z-index: 0
-    top: 10px
+    top: 12px
     right: -45px
     opacity: 0
     tn(.5s)
@@ -45,7 +51,7 @@
     font-size: 20px
     position: absolute
     z-index: 0
-    top: 0
+    top: 2px
     left: -42px
   .wrapper-search-block
     dibt()

@@ -1,0 +1,27 @@
+//- index.jade
+extends ../layout.jade
+block breadcrumbs
+    +breadcrumbs(['', 'About'])
+block content
+    section.auth-page
+        .container
+            form.form-validate(name="formValidate" ng-controller="FormCtrl" ng-init="action='./controller.php'" novalidate)
+                div
+                    input#name_auth(type="text" name="name_auth" ng-model='dataForm.data.name' autocomplete="off" required)
+                    label(for="name_auth")
+                        span Username or Email:
+                div
+                    input#password_auth(type="password" name="password_auth" ng-model='dataForm.data.email' autocomplete="off" required)
+                    label(for="password_auth")
+                        span Password:
+                .wrapper-send
+                    span.wrapper-check-sign
+                        input#keep_sign(type="checkbox" name="keep_sign" value="1")
+                        label(for="keep_sign") Keep me signed in
+                            span
+                    button.send(ng-click='send(dataForm,formValidate,action)')
+                        span Sign in
+                input(type="hidden" name="task" ng-init='dataForm.hidden.task="contacts"' ng-model='dataForm.hidden.task')
+            div.link-to-auth
+                p Don't have an account yet?
+                a(href="./registration.html") Join Now

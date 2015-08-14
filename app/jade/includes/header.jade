@@ -3,15 +3,15 @@ header.header
         .container
             a.logo(href="./") Touch of Europe
             .authentificition
-                //a.sign-in(href="") Sign In
+                a.sign-in(href="sign_in.html") Sign In
                 // Последующие блоки a.private-office и ul.sub-links - выводить вместе
-                a.private-office(href="./private-office.html") Ivan
-                ul.sub-links
-                    li
-                        a(href="./private-office.html") Edit profile
-                    li
-                        form(method="post" action="#")
-                            button Sign out
+                //a.private-office(href="./private-office.html") Ivan
+                //ul.sub-links
+                //    li
+                //        a(href="./private-office.html") Edit profile
+                //    li
+                //        form(method="post" action="#")
+                //            button Sign out
             .mini-cart
                 a(href="")
                     span 0
@@ -115,14 +115,14 @@ header.header
                                 a(href="./category.html") Maria Theresa
                     a(href="./category.html") Porcelain & China
                 li
-                    a(href="./category.html") About
+                    a(href="./about.html") About
                 li
-                    a(href="./category.html") Contact Us
-            .search
-                form.form-validate.search(name="formValidate" novalidate ng-controller="SearchCtrl")
-                    .wrapper-search-block(ng-class="{'active':isOpenSearch==true}")
-                        input(type="text" name="search" placeholder="Search" ng-model='dataForm.search' autocomplete="off" ng-focus="isOpenSearch=true" ng-blur="blurSearch(dataForm.search)")
+                    a(href="./contact.html") Contact Us
+            .search(ng-controller="SearchCtrl as vSearch" ng-class="{'active':vSearch.isShowSearch==true}")
+                form.form-validate(name="formValidate" novalidate action="./")
+                    .wrapper-search-block
+                        input(type="text" name="search" placeholder="Search" ng-model='vSearch.dataForm.search' autocomplete="off" ng-focus="vSearch.isShowSearch=true" ng-blur="vSearch.blurSearch(dataForm.search)")
                     button.send
                         span.fa.fa-search
                     button.send-button find
-                    button(type="reset").fa.fa-close.close
+                    span(ng-click="resetSearch()").fa.fa-close.close

@@ -26,7 +26,9 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 //import './plugins/bg-slider';
 
-//import 'angular';
+import 'angular';
+import './app';
+import './search/search';
 //import 'angular-resource';
 //import 'angular-sanitize';
 //import 'gsap';

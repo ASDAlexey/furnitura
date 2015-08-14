@@ -4,7 +4,7 @@ html
     head
         include ./includes/head.jade
         include ./includes/mixins.jade
-    body(pointer-events-scroll ng-controller="PopupCtrl")
+    body(ng-app="App" pointer-events-scroll)
         .wrapper.dNtoLoad
             main.main
                 include ./includes/header.jade
@@ -17,6 +17,11 @@ html
         //include ./includes/preloader.jade
 script(src="./scripts/vendors/preloadjs-0.6.1.min.js" defer)
 script(src="./scripts/vendors/snap.svg.js" defer)
+
+//script(src="./scripts/vendors/angular.js" defer)
+//script(src="./scripts/app.js" defer)
+//script(src="./scripts/search/search.js" defer)
+
 //script(src="./scripts/bundle.js" defer)
 script(src="http://localhost:8080/webpack-dev-server.js" defer)
 script(src="http://localhost:8080/bundle.js" defer)

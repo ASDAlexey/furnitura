@@ -123,45 +123,58 @@
             </div>
           </nav>
         </header>
-        <section class="bg-slider">
-          <div class="slider js_simple js_percentage simple slider-desktop">
-            <div class="frame js_frame">
-              <ul class="slides js_slides">
-                <li style="background-image:url('./images/bg-slider/1.jpg')" class="js_slide"></li>
-                <li style="background-image:url('./images/bg-slider/1.jpg')" class="js_slide"></li>
-                <li style="background-image:url('./images/bg-slider/1.jpg')" class="js_slide"></li>
+            <div class="wrapper-breadcrumbs container">
+              <ul class="breadcrumbs animated bounceInRight">
+                <li><a href="./"></a></li>
+                <li><span>About</span></li>
               </ul>
-            </div><span class="js_prev prev arrows-bg-slider"></span><span class="js_next next arrows-bg-slider"></span>
+            </div>
+        <section class="block-content contacts">
+          <div class="container">
+            <div class="left-block">
+              <h1>Contact</h1>
+              <ul>
+                <li><span>Lichtkultur GmbH Flösserstr. 19a 01139 Dresden</span></li>
+                <li><a href="tel:+1-800-667-452">Australia: 1-800-667-452</a></li>
+                <li><a href="tel:+1-888-642-8669">USA / Canada: 1-888-642-8669</a></li>
+                <li><a href="tel:+49-351-84710961">+49-351-84710961</a></li>
+                <li><a href="mailto:info@lightingdeluxe.com">info@lightingdeluxe.com</a></li>
+                <li><a href="skype:SkypeUser?call">skype</a></li>
+                <li><span>working time</span></li>
+              </ul>
+            </div>
+            <div class="text">
+              <h1>Use the form below to contact us</h1>
+              <p>A company representative will contact you promptly</p>
+              <form name="formValidate" ng-controller="FormCtrl" ng-init="action='./controller.php'" novalidate class="form-validate">
+                <div>
+                  <input id="name_contact" type="text" name="name_contact" ng-model="dataForm.data.name" autocomplete="off" required>
+                  <label for="name_contact"><span>Name:</span></label>
+                </div>
+                <div>
+                  <input id="email_contact" type="text" name="email_contact" ng-model="dataForm.data.email" autocomplete="off" required>
+                  <label for="email_contact"><span>Email:</span></label>
+                </div>
+                <div>
+                  <input id="subject_contact" type="text" name="subject_contact" ng-model="dataForm.data.subject" autocomplete="off" required>
+                  <label for="subject_contact"><span>Subject:</span></label>
+                </div>
+                <div>
+                  <textarea id="msg_contact" type="text" name="msg_contact" ng-model="dataForm.data.msg" autocomplete="off" required></textarea>
+                  <label for="msg_contact"><span>Message:</span></label>
+                </div>
+                <div class="wrapper-send">
+                  <button ng-click="send(dataForm,formValidate,action)" class="send"><span>Submit</span></button>
+                </div>
+                <input type="hidden" name="task" ng-init="dataForm.hidden.task=&quot;contacts&quot;" ng-model="dataForm.hidden.task">
+              </form>
+            </div>
           </div>
         </section>
-        <section class="list-nav-categories">
-          <div class="container">
-            <ul>
-              <li><a href="./category.html">
-                  <div class="wrapper-content"><span>Crystal Lighting</span></div>
-                  <div class="wrapper-img"><img src="./images/nav-categories/1.jpg"></div></a></li>
-              <li><a href="./category.html">
-                  <div class="wrapper-content"><span>Clocks</span></div>
-                  <div class="wrapper-img"><img src="./images/nav-categories/2.jpg"></div></a></li>
-              <li><a href="./category.html">
-                  <div class="wrapper-content"><span>Crystal Tableware</span></div>
-                  <div class="wrapper-img"><img src="./images/nav-categories/3.jpg"></div></a></li>
-              <li><a href="./category.html">
-                  <div class="wrapper-content"><span>Porcelain & China</span></div>
-                  <div class="wrapper-img"><img src="./images/nav-categories/4.jpg"></div></a></li>
-            </ul>
-          </div>
-        </section>
-        <section class="content-block-main">
-          <div class="container">
-            <p><img style="float:left" src="./images/content-img.jpg"></p>
-            <p> Although picking a light fixture might seem like a pretty standard task, today’s options make this once-easy decision more complicated. If you’re looking for your kitchen, you now have to decide: pendant or chandeplier? Track light or wall sconce? Cabinet or recessed lights? No matter how mundane it might seem, picking the right illumination is important. Some light fixtures cover very little ground and provide more of an ambient glow, while others shine from one corner of the room to another. Choosing the wrong fixture can lead to a poorly lit room or even an overly lit, washed-out space. Because of this, be sure to consider all the options below before taking your next lighting plunge. Pendant Lights</p>
-            <p>one lightbulb, so they don’t cover as much ground; several are often used to cover more space. There are many styles, including drum pendants and globe pendants, making it easy to find one that will fit your decor. They work well when you’re trying to showcase a smaller, specific area, such as a kitchen island or a dining room table.</p>
-            <h2>Chandeliers</h2>
-            <p>Chandeliers have multiple lightbulbs combined in one unit to create a larger, more dramatic statement piece. Unlike pendants, they produce a stronger glow and therefore can often stand alone. Chandeliers are traditionally more elegant and more expensive than other fixtures, and therefore are used less frequently — you may see one in an entryway or a formal dining room.</p>
-            <h2>Ceiling Fans</h2>
-            <p>Primarily used for practicality as opposed to beauty, ceiling fans are a great way to cool a room down and brighten it up at the same time. They are often used in bedrooms, though they come in handy where there’s a lot of activity, including playrooms and home gyms. They also make great outdoor fixtures for a covered patio or sunroom.</p>
-          </div>
+        <section ng-controller="GMapCtrl" class="wrapper-map">
+          <ui-gmap-google-map center="{&quot;latitude&quot;: 56.1482938,&quot;longitude&quot;: 47.2592382}" zoom="16" options="options">
+            <ui-gmap-marker coords="{&quot;latitude&quot;: 56.1482938,&quot;longitude&quot;: 47.2592382}" options="marker.options" idkey="1" ng-init="marker.options.icon='images/map-logo.png'"></ui-gmap-marker>
+          </ui-gmap-google-map>
         </section>
       </main>
     </div>

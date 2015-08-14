@@ -157,16 +157,17 @@ gulp.task 'connect',->
     livereload : true
     port : 3000
 gulp.task 'watchSprite',->
-  watch './app/images/sprite/*.*',->
-    gulp.start('stylus')
-  watch './app/json/**/*.json',->
-    gulp.start('jade')
+#  watch './app/images/sprite/*.*',->
+#    gulp.start('stylus')
+#  watch './app/json/**/*.json',->
+#    gulp.start('jade')
   watch './app/styles/**/*.styl',->
     gulp.start('stylus')
   watch './app/jade/**/*.jade',->
     gulp.start('jade')
 gulp.task 'watch',->
 #  gulp.watch('./app/*.html').on('change',browserSync.reload)
+#  gulp.watch('./app/styles/application.css',["stylus"])
 #  gulp.watch('./app/styles/application.css').on('change',browserSync.reload)
 gulp.task 'default',[
   'sprite'

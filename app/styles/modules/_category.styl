@@ -4,13 +4,40 @@
   display: flex
   flex-wrap wrap
   > li
+    position: relative
+    z-index: 0
     dibt()
     margin-left: 28px
     width: 301px
     &:nth-child(3n+1)
       margin-left: 0
     .wrapper-img
+      position: relative
+      z-index: 0
       height: 301px
+      &:hover
+        &:after, &:before
+          transform: scale(1)
+      &:after
+        tn(.5s)
+        border-right: 1px solid #818181
+        border-left: 1px solid #818181
+        transform: scale(1, 0)
+      &:before
+        tn(.5s)
+        border-top: 1px solid #818181
+        border-bottom: 1px solid #818181
+        transform: scale(0, 1)
+      &:after, &:before
+        position: absolute
+        z-index: 3
+        left: 50%
+        top: 50%
+        content ''
+        margin-left: -112px
+        margin-top: -112px
+        width: 224px
+        height: 224px
     > a
       display: block
       text-decoration: none

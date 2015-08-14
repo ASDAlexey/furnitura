@@ -11,23 +11,21 @@
     <link rel="icon" type="image/png" href="./images/favicon.png">
     <script async>var loadCSSFiles=function(){var e,t,a=["./styles/application.css"],n=document.getElementsByTagName("head")[0];for(t=0;t<a.length;t++)e=document.createElement("link"),e.rel="stylesheet",e.href=a[t],n.appendChild(e)},raf=requestAnimationFrame||mozRequestAnimationFrame||webkitRequestAnimationFrame||msRequestAnimationFrame;raf?(raf(loadCSSFiles)):window.addEventListener("load",loadCSSFiles);</script>
   </head>
-  <body pointer-events-scroll ng-controller="PopupCtrl">
+  <body ng-app="App" pointer-events-scroll>
     <div class="wrapper dNtoLoad">
       <main class="main">
         <header class="header">
           <div class="header-top">
             <div class="container"><a href="./" class="logo">Touch of Europe</a>
-              <div class="authentificition">
-                <!--a.sign-in(href="") Sign In-->
-                <!-- Последующие блоки a.private-office и ul.sub-links - выводить вместе--><a href="./private-office.html" class="private-office">Ivan</a>
-                <ul class="sub-links">
-                  <li><a href="./private-office.html">Edit profile</a></li>
-                  <li>
-                    <form method="post" action="#">
-                      <button>Sign out</button>
-                    </form>
-                  </li>
-                </ul>
+              <div class="authentificition"><a href="sign_in.html" class="sign-in">Sign In</a>
+                <!-- Последующие блоки a.private-office и ul.sub-links - выводить вместе-->
+                <!--a.private-office(href="./private-office.html") Ivan-->
+                <!--ul.sub-links-->
+                <!--    li-->
+                <!--        a(href="./private-office.html") Edit profile-->
+                <!--    li-->
+                <!--        form(method="post" action="#")-->
+                <!--            button Sign out-->
               </div>
               <div class="mini-cart"><a href=""><span>0</span></a>
                 <!--если элементов больше 5, то добавляем класс div.inner-mini-cart-->
@@ -110,17 +108,16 @@
                     </ul>
                   </div><a href="./category.html">Porcelain & China</a>
                 </li>
-                <li><a href="./category.html">About</a></li>
-                <li><a href="./category.html">Contact Us</a></li>
+                <li><a href="./about.html">About</a></li>
+                <li><a href="./contact.html">Contact Us</a></li>
               </ul>
-              <div class="search">
-                <form name="formValidate" novalidate ng-controller="SearchCtrl" class="form-validate search">
-                  <div ng-class="{'active':isOpenSearch==true}" class="wrapper-search-block">
-                    <input type="text" name="search" placeholder="Search" ng-model="dataForm.search" autocomplete="off" ng-focus="isOpenSearch=true" ng-blur="blurSearch(dataForm.search)">
+              <div ng-controller="SearchCtrl as vSearch" ng-class="{'active':vSearch.isShowSearch==true}" class="search">
+                <form name="formValidate" novalidate action="./" class="form-validate">
+                  <div class="wrapper-search-block">
+                    <input type="text" name="search" placeholder="Search" ng-model="vSearch.dataForm.search" autocomplete="off" ng-focus="vSearch.isShowSearch=true" ng-blur="vSearch.blurSearch(dataForm.search)">
                   </div>
                   <button class="send"><span class="fa fa-search"></span></button>
-                  <button class="send-button">find</button>
-                  <button type="reset" class="fa fa-close close"></button>
+                  <button class="send-button">find</button><span ng-click="resetSearch()" class="fa fa-close close"></span>
                 </form>
               </div>
             </div>
@@ -203,7 +200,7 @@
           <div class="wrapper-list-products">
             <div class="container">
               <ul class="list-products">
-                <li><a href="./product-details.html" class="wrapper-img"><img src="./images/popular-products/1.jpg"></a>
+                <li><span></span><a href="./product-details.html" class="wrapper-img"><img src="./images/popular-products/1.jpg"></a>
                   <div class="wrapper-adv"><a class="add-to-cart"></a><a href="./product-details.html" class="more">learn more...</a></div>
                   <h2><a href="./product-details.html">Escale</a></h2>
                   <p><a href="./product-details.html">Fluid Pendant Light dkfg dfgdfgfdg</a></p>
@@ -212,7 +209,7 @@
                     <li><span>CAD</span><span>$10 000</span><span>$273.00</span></li>
                   </ul>
                 </li>
-                <li><a href="./product-details.html" class="wrapper-img"><img src="./images/popular-products/1.jpg"></a>
+                <li><span></span><a href="./product-details.html" class="wrapper-img"><img src="./images/popular-products/1.jpg"></a>
                   <div class="wrapper-adv"><a class="add-to-cart"></a><a href="./product-details.html" class="more">learn more...</a></div>
                   <h2><a href="./product-details.html">Escale</a></h2>
                   <p><a href="./product-details.html">Fluid Pendant Light</a></p>
@@ -221,7 +218,7 @@
                     <li><span>CAD</span><span>$10 000</span><span>$273.00</span></li>
                   </ul>
                 </li>
-                <li><a href="./product-details.html" class="wrapper-img"><img src="./images/popular-products/1.jpg"></a>
+                <li><span></span><a href="./product-details.html" class="wrapper-img"><img src="./images/popular-products/1.jpg"></a>
                   <div class="wrapper-adv"><a class="add-to-cart"></a><a href="./product-details.html" class="more">learn more...</a></div>
                   <h2><a href="./product-details.html">Escale</a></h2>
                   <p><a href="./product-details.html">Fluid Pendant Light</a></p>
@@ -230,7 +227,7 @@
                     <li><span>CAD</span><span>$10 000</span><span>$273.00</span></li>
                   </ul>
                 </li>
-                <li><a href="./product-details.html" class="wrapper-img"><img src="./images/popular-products/1.jpg"></a>
+                <li><span></span><a href="./product-details.html" class="wrapper-img"><img src="./images/popular-products/1.jpg"></a>
                   <div class="wrapper-adv"><a class="add-to-cart"></a><a href="./product-details.html" class="more">learn more...</a></div>
                   <h2><a href="./product-details.html">Escale</a></h2>
                   <p><a href="./product-details.html">Fluid Pendant Light</a></p>
@@ -239,7 +236,7 @@
                     <li><span>CAD</span><span>$10 000</span><span>$273.00</span></li>
                   </ul>
                 </li>
-                <li><a href="./product-details.html" class="wrapper-img"><img src="./images/popular-products/1.jpg"></a>
+                <li><span></span><a href="./product-details.html" class="wrapper-img"><img src="./images/popular-products/1.jpg"></a>
                   <div class="wrapper-adv"><a class="add-to-cart"></a><a href="./product-details.html" class="more">learn more...</a></div>
                   <h2><a href="./product-details.html">Escale</a></h2>
                   <p><a href="./product-details.html">Fluid Pendant Light</a></p>
@@ -248,7 +245,7 @@
                     <li><span>CAD</span><span>$10 000</span><span>$273.00</span></li>
                   </ul>
                 </li>
-                <li><a href="./product-details.html" class="wrapper-img"><img src="./images/popular-products/1.jpg"></a>
+                <li><span></span><a href="./product-details.html" class="wrapper-img"><img src="./images/popular-products/1.jpg"></a>
                   <div class="wrapper-adv"><a class="add-to-cart"></a><a href="./product-details.html" class="more">learn more...</a></div>
                   <h2><a href="./product-details.html">Escale</a></h2>
                   <p><a href="./product-details.html">Fluid Pendant Light</a></p>
@@ -257,7 +254,7 @@
                     <li><span>CAD</span><span>$10 000</span><span>$273.00</span></li>
                   </ul>
                 </li>
-                <li><a href="./product-details.html" class="wrapper-img"><img src="./images/popular-products/1.jpg"></a>
+                <li><span></span><a href="./product-details.html" class="wrapper-img"><img src="./images/popular-products/1.jpg"></a>
                   <div class="wrapper-adv"><a class="add-to-cart"></a><a href="./product-details.html" class="more">learn more...</a></div>
                   <h2><a href="./product-details.html">Escale</a></h2>
                   <p><a href="./product-details.html">Fluid Pendant Light</a></p>
@@ -266,7 +263,7 @@
                     <li><span>CAD</span><span>$10 000</span><span>$273.00</span></li>
                   </ul>
                 </li>
-                <li><a href="./product-details.html" class="wrapper-img"><img src="./images/popular-products/1.jpg"></a>
+                <li><span></span><a href="./product-details.html" class="wrapper-img"><img src="./images/popular-products/1.jpg"></a>
                   <div class="wrapper-adv"><a class="add-to-cart"></a><a href="./product-details.html" class="more">learn more...</a></div>
                   <h2><a href="./product-details.html">Escale</a></h2>
                   <p><a href="./product-details.html">Fluid Pendant Light</a></p>
@@ -358,6 +355,9 @@
 </html>
 <script src="./scripts/vendors/preloadjs-0.6.1.min.js" defer></script>
 <script src="./scripts/vendors/snap.svg.js" defer></script>
+<!--script(src="./scripts/vendors/angular.js" defer)-->
+<!--script(src="./scripts/app.js" defer)-->
+<!--script(src="./scripts/search/search.js" defer)-->
 <!--script(src="./scripts/bundle.js" defer)-->
 <script src="http://localhost:8080/webpack-dev-server.js" defer></script>
 <script src="http://localhost:8080/bundle.js" defer></script>
