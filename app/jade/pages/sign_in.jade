@@ -1,27 +1,27 @@
 //- index.jade
 extends ../layout.jade
-block breadcrumbs
-    +breadcrumbs(['', 'About'])
 block content
     section.auth-page
         .container
-            form.form-validate(name="formValidate" ng-controller="FormCtrl" ng-init="action='./controller.php'" novalidate)
+            form.form-validate#auth-enter(name="formValidate" ng-controller="App.form.FormAuthCtrl as vm" ng-init="action='./controller.php'" novalidate)
                 div
-                    input#name_auth(type="text" name="name_auth" ng-model='dataForm.data.name' autocomplete="off" required)
+                    input#name_auth(type="email" name="name_auth" ng-model='vm.dataForm.data.name' autocomplete="off" required)
                     label(for="name_auth")
                         span Username or Email:
                 div
-                    input#password_auth(type="password" name="password_auth" ng-model='dataForm.data.email' autocomplete="off" required)
+                    input#password_auth(type="password" name="password_auth" ng-model='vm.dataForm.data.email' autocomplete="off" required)
                     label(for="password_auth")
                         span Password:
                 .wrapper-send
                     span.wrapper-check-sign
-                        input#keep_sign(type="checkbox" name="keep_sign" value="1")
+                        input#keep_sign(type="checkbox" name="remember" value="yes")
                         label(for="keep_sign") Keep me signed in
                             span
-                    button.send(ng-click='send(dataForm,formValidate,action)')
+                    button.send(ng-click='vm.send(vm.dataForm,formValidate,vm.action,"auth-enter")')
                         span Sign in
-                input(type="hidden" name="task" ng-init='dataForm.hidden.task="contacts"' ng-model='dataForm.hidden.task')
+                input(type="hidden" name="option" value="com_users")
+                input(type="hidden" name="task" value="user.login")
+                input(type="hidden" name="0e23c40c57a567381354bfedc95271f4" value="1")
             div.link-to-auth
                 p Don't have an account yet?
                 a(href="./registration.html") Join Now

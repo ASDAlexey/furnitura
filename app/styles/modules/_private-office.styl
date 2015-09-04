@@ -1,0 +1,77 @@
+.private-offfice
+  .header-private-office
+    background-color: #000
+    .title
+      color: #fff
+      lt(48px)
+      padding: 98px 0 100px
+  .tab-content
+    > .container
+      position: relative
+      z-index: 0
+      .list-tabs-links
+        position: absolute
+        z-index: 1
+        top: -44px
+        height: 44px
+        overflow hidden
+        right: 0
+        text-align: right
+        font-size: 0
+        > li
+          text-align: center
+          dibt()
+          &:first-child
+            a
+              &:before
+                content: "\f218"
+          &:nth-child(2)
+            a
+              &:before
+                content: "\f08d"
+          &:nth-child(3)
+            a
+              &:before
+                content: "\f129"
+          &:nth-child(4)
+            a
+              &:before
+                content: "\f13e"
+          &:nth-child(5)
+            a
+              &:before
+                content: "\f0a1"
+          a
+            tn(.5s)
+            display: block
+            padding: 14px
+            text-decoration: none
+            color: #b2b2b2
+            background-color: #000
+            lr(16px)
+            &:before
+              faw(18px)
+              dibt()
+              margin-right: 9px
+            &:hover, &.active
+              color: #000
+              background-color: #fff
+    .list-tabs
+      > li
+        .container
+          padding: 66px 0
+          > h2
+            color: #000
+            ll(30px)
+            padding-bottom: 44px
+          > p
+            color: #000
+            lr(16px, 1.3)
+            a
+              text-decoration: none
+              color: #b4b4b4
+              margin: 0 2px 4px
+              dibm()
+              tn(.5s)
+              &:hover
+                color: #fedb4f

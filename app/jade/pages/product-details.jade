@@ -1,0 +1,173 @@
+//- index.jade
+extends ../layout.jade
+block breadcrumbs
+    +breadcrumbs(['', 'Lighting', 'Modern', 'ESCALE Fluid Pendant Light'])
+block content
+    section.product-details
+        header.product-details-header
+            .container
+                .wrapper-img
+                    img(src="./images/product-details-img.jpg")
+                .price-block
+                    h1 ESCALE Fluid Pendant Light
+                    form(action="#" method="get" ng-controller="ProductDetail as vm")
+                        .price-and-count
+                            count-products(quantity="vm.dataForm.quantity" is-show-free-sbhipping="true")
+                            ul.currency-list
+                                li
+                                    h2 USD
+                                    span
+                                        span $
+                                        span(ng-bind="vm.getTotalPrice(vm.dataForm.price.usd,vm.dataForm.quantity) | round2 | splitSpace" ng-init="vm.dataForm.price.usd=10000") 10 000
+                                    del
+                                        span $
+                                        span(ng-bind="vm.getTotalDiscount(vm.getDiscount(vm.dataForm.price.usd,vm.dataForm.discount.usd),vm.dataForm.quantity) | round2 | splitSpace" ng-init="vm.dataForm.discount.usd=0.05") 273.00
+                                li
+                                    h2 CAD
+                                    span
+                                        span $
+                                        span(ng-bind="vm.getTotalPrice(vm.dataForm.price.cad,vm.dataForm.quantity) | round2 | splitSpace" ng-init="vm.dataForm.price.cad=10000.87") 10 000
+                                    del
+                                        span $
+                                        span(ng-bind="vm.getTotalDiscount(vm.getDiscount(vm.dataForm.price.cad,vm.dataForm.discount.cad),vm.dataForm.quantity) | round2 | splitSpace" ng-init="vm.dataForm.discount.cad=0.04555555") 273.00
+                            input.hide-block(type="hidden" name="product_detail" value="{{vm.dataForm}}")
+                        .wrapper-send
+                            button.send
+                                span add to cart
+                        p.wrapper-more-info
+                            a(href="") Need more info? Ask a question
+        .info-block
+            .container
+                .product-details-info
+                    h2 Product details
+                    p Feminine curves combine with strong masculine arms, creating a perfect balance
+                    p Curves and sweeps intersect, providing a modern update on a classic form
+                    p Multi-layer Russet Bronze finish adds an antique feel
+                    p The open-cage design eliminates the center column, and adds airiness
+                    p Bright light shines from the beautiful matte Pearl Glass creating a warm glow
+                    p A chandelier creates a stylish focal point
+                    p Graciously sized for taller dining and living areas
+                    ul
+                        li Fixture Width: 33"
+                        li Fixture Height: 30.25"
+                        li Rod Quantity: NA
+                        li Chain Length: 6'
+                        li Wire Length: 10'
+                        li Number of Arms: 9
+                        li Glass/Shade Finish: Pearl Glass
+                        li Glass/Shade Diameter: 5.375"
+                        li Glass/Shade Height: 5.25"
+                    ul
+                        li Canopy/Backplace Dimensions: 5.5''Dia x 1.25''E
+                        li Fixture Wattage: 9 x 60W(M)
+                        li Safety Rating: UL,CUL
+                        li Fixture Application: Dry Location
+                        li Number of Sockets: 9
+                        li Maximum Wattage: 60
+                        li Total Wattage: 540
+                        li Bulb Type: Incandescent, Type A
+                        li Bulb Included?: No
+                        li Fixture Weight: 26.75
+                        li Fixture Type/Function: Chandelier
+                        li Energy Saver?: No
+                        li Energy Star?: No
+                .product-specifications
+                    h2 Product Specifications
+                    dl
+                        dt Manufactured By
+                        dd Golden Lighting
+                        dt Width
+                        dd 33"
+                        dt Height
+                        dd 30.25"
+                        dt Color
+                        dd Russet Bronze
+                        dt Category
+                        dd Chandeliers
+                        dt Style
+                        dd Traditional
+                    a.pdf(href="./pdf.pdf") Product specification sheet
+ul.popular-products
+    .container
+        h1.title Popular products
+        .slider.js_multislides.multislides
+            .frame.js_frame
+                ul.list-products.slides.js_slides
+                    li.item-product.js_slide
+                        a.wrapper-img(href="./product-details.html")
+                            img(src="./images/popular-products/1.jpg")
+                        .wrapper-adv
+                            a.add-to-cart(href="./cart.html")
+                            a.more(href="./product-details.html") learn more...
+                        h2
+                            a(href="./product-details.html") Escale
+                        p
+                            a(href="./product-details.html") Fluid Pendant Light
+                        ul.price-block
+                            li
+                                span USD
+                                span $10 000
+                                span $273.00
+                            li
+                                span CAD
+                                span $10 000
+                                span $273.00
+                    li.item-product.js_slide
+                        a.wrapper-img(href="./product-details.html")
+                            img(src="./images/popular-products/1.jpg")
+                        .wrapper-adv
+                            a.add-to-cart(href="./cart.html")
+                            a.more(href="./product-details.html") learn more...
+                        h2
+                            a(href="./product-details.html") Escale
+                        p
+                            a(href="./product-details.html") Fluid Pendant Light
+                        ul.price-block
+                            li
+                                span USD
+                                span $10 000
+                                span $273.00
+                            li
+                                span CAD
+                                span $10 000
+                                span $273.00
+                    li.item-product.js_slide
+                        a.wrapper-img(href="./product-details.html")
+                            img(src="./images/popular-products/1.jpg")
+                        .wrapper-adv
+                            a.add-to-cart(href="./cart.html")
+                            a.more(href="./product-details.html") learn more...
+                        h2
+                            a(href="./product-details.html") Escale
+                        p
+                            a(href="./product-details.html") Fluid Pendant Light
+                        ul.price-block
+                            li
+                                span USD
+                                span $10 000
+                                span $273.00
+                            li
+                                span CAD
+                                span $10 000
+                                span $273.00
+                    li.item-product.js_slide
+                        a.wrapper-img(href="./product-details.html")
+                            img(src="./images/popular-products/1.jpg")
+                        .wrapper-adv
+                            a.add-to-cart
+                            a.more(href="./product-details.html") learn more...
+                        h2
+                            a(href="./product-details.html") Escale
+                        p
+                            a(href="./product-details.html") Fluid Pendant Light
+                        ul.price-block
+                            li
+                                span USD
+                                span $10 000
+                                span $273.00
+                            li
+                                span CAD
+                                span $10 000
+                                span $273.00
+            span.js_prev.prev.arrows-bg-slider
+            span.js_next.next.arrows-bg-slider

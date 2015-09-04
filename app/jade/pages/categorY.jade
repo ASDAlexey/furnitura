@@ -7,96 +7,104 @@ block content
         -var arr=[1,2,3,4,5];
         each image in arr
             li
-                .wrapper-img
+                a(href="./category.html").wrapper-img
                     img(src="./images/sub-category/#{image}.jpg")
                 a(href="./category") Modern
-    ul.popular-products
-        .container
-            h1.title Popular products
-            .slider.js_multislides.multislides
+    ul.popular-products(ng-controller="App.animations.multislidesCtrl as vmSlider")
+        h1.title Popular products
+        section.bg-slider.animated.bounceInLeft(ng-cloak multislides="popular" count-in-slide="vmSlider.countInSlide" ng-init="vmSlider.popular=#{JSON.stringify(popular)}")
+            .slider.js_simple.js_percentage.simple.multislides(ng-if="vmSlider.group.length")
                 .frame.js_frame
-                    ul.list-products.slides.js_slides
-                        li.item-product.js_slide
-                            a.wrapper-img(href="./product-details.html")
-                                img(src="./images/popular-products/1.jpg")
-                            .wrapper-adv
-                                a.add-to-cart
-                                a.more(href="./product-details.html") learn more...
-                            h2
-                                a(href="./product-details.html") Escale
-                            p
-                                a(href="./product-details.html") Fluid Pendant Light
-                            ul.price-block
-                                li
-                                    span USD
-                                    span $10 000
-                                    span $273.00
-                                li
-                                    span CAD
-                                    span $10 000
-                                    span $273.00
-                        li.item-product.js_slide
-                            a.wrapper-img(href="./product-details.html")
-                                img(src="./images/popular-products/1.jpg")
-                            .wrapper-adv
-                                a.add-to-cart
-                                a.more(href="./product-details.html") learn more...
-                            h2
-                                a(href="./product-details.html") Escale
-                            p
-                                a(href="./product-details.html") Fluid Pendant Light
-                            ul.price-block
-                                li
-                                    span USD
-                                    span $10 000
-                                    span $273.00
-                                li
-                                    span CAD
-                                    span $10 000
-                                    span $273.00
-                        li.item-product.js_slide
-                            a.wrapper-img(href="./product-details.html")
-                                img(src="./images/popular-products/1.jpg")
-                            .wrapper-adv
-                                a.add-to-cart
-                                a.more(href="./product-details.html") learn more...
-                            h2
-                                a(href="./product-details.html") Escale
-                            p
-                                a(href="./product-details.html") Fluid Pendant Light
-                            ul.price-block
-                                li
-                                    span USD
-                                    span $10 000
-                                    span $273.00
-                                li
-                                    span CAD
-                                    span $10 000
-                                    span $273.00
-                        li.item-product.js_slide
-                            a.wrapper-img(href="./product-details.html")
-                                img(src="./images/popular-products/1.jpg")
-                            .wrapper-adv
-                                a.add-to-cart
-                                a.more(href="./product-details.html") learn more...
-                            h2
-                                a(href="./product-details.html") Escale
-                            p
-                                a(href="./product-details.html") Fluid Pendant Light
-                            ul.price-block
-                                li
-                                    span USD
-                                    span $10 000
-                                    span $273.00
-                                li
-                                    span CAD
-                                    span $10 000
-                                    span $273.00
+                    ul.slides.js_slides
+                        li.js_slide(ng-repeat="popularItem in vmSlider.group track by $index")
+                            ul.list-products.slides.js_slides
+                                li.item-product.js_slide(ng-repeat="slideProduct in vmSlider.popular | slice:$index*vmSlider.countInSlide:($index+1)*vmSlider.countInSlide")
+                                    a.wrapper-img(ng-href="{{slideProduct.link}}")
+                                        img(ng-src="{{slideProduct.src}}")
+                                    .wrapper-adv
+                                        a.add-to-cart(ng-href="{{slideProduct.cart_link}}")
+                                        a.more(ng-href="{{slideProduct.link}}") learn more...
+                                    h2
+                                        a(ng-href="{{slideProduct.link}}") {{slideProduct.product_name}}
+                                    p
+                                        a(ng-href="{{slideProduct.link}}") {{slideProduct.product_description}}
+                                    ul.price-block
+                                        li
+                                            span USD
+                                            span ${{slideProduct.price_usd}}
+                                            span ${{slideProduct.discount_usd}}7
+                                        li
+                                            span CAD
+                                            span ${{slideProduct.price_cad}}
+                                            span ${{slideProduct.discount_cad}}
                 span.js_prev.prev.arrows-bg-slider
                 span.js_next.next.arrows-bg-slider
     section.filter-block
         header.header-filter
             h1.title Narrow Your Results
+        .content-filter.container
+            form.form-validate.form-filter#filter(name="formValidate" ng-controller="App.FilterCtrl as vmFilter" novalidate)
+                div.block-filter
+                    label Number of bulbs
+                    // dataForm.manufacture - название входной коллекции, dataForm.manufacturerSelected - выбранный option, т.е. чтобы получить результурующее value
+                    //данного select нужно обратиться {{dataForm.manufacturerSelected[0].value}}
+                    custom-select(input-model="vmFilter.dataForm.bulbs" output-model="vmFilter.dataForm.bulbsSelected")
+                        each item,index in selects.bulbs
+                            if index == 0
+                                options(value="#{item.value}" selected) #{item.maker}
+                            else
+                                options(value="#{item.value}") #{item.maker}
+                div.block-filter
+                    label Sizes: height and width
+                    // dataForm.manufacture - название входной коллекции, dataForm.manufacturerSelected - выбранный option, т.е. чтобы получить результурующее value
+                    //данного select нужно обратиться {{dataForm.manufacturerSelected[0].value}}
+                    custom-select(input-model="vmFilter.dataForm.height_and_width" output-model="vmFilter.dataForm.height_and_widthSelected")
+                        each item,index in selects.height_and_width
+                            if index == 0
+                                options(value="#{item.value}" selected) #{item.maker}
+                            else
+                                options(value="#{item.value}") #{item.maker}
+                div.block-filter
+                    label Colour
+                    .block-colors
+                        // Если цвет белый то даем color.white
+                        color.white(checked model="dataForm.color.customsforall_value_name1" value="#fff")
+                        color(model="vmFilter.dataForm.color.customsforall_value_name2" value="#000")
+                        color(model="vmFilter.dataForm.color.customsforall_value_name3" value="#f1e403")
+                        color(model="vmFilter.dataForm.color.customsforall_value_name4" value="#c26060")
+                        color(model="vmFilter.dataForm.color.customsforall_value_name5" value="#406910")
+                        color(model="vmFilter.dataForm.color.customsforall_value_name6" value="#27adb5")
+                        color(model="vmFilter.dataForm.color.customsforall_value_name7" value="#818181")
+                div.block-filter
+                    label Price ranges
+                    // dataForm.manufacture - название входной коллекции, dataForm.manufacturerSelected - выбранный option, т.е. чтобы получить результурующее value
+                    //данного select нужно обратиться {{dataForm.manufacturerSelected[0].value}}
+                    custom-select(input-model="vmFilter.dataForm.price_ranges" output-model="dataForm.price_rangesSelected")
+                        each item,index in selects.price_ranges
+                            if index == 0
+                                options(value="#{item.value}" selected) #{item.maker}
+                            else
+                                options(value="#{item.value}") #{item.maker}
+                    .wrapper-prices
+                        div
+                            label(for="price_min") $
+                            input#price_min(placeholder="min" type="text" ng-model="vmFilter.dataForm.price_min" name="price_min" required)
+                        div
+                            label(for="price_min") $
+                            input#price_max(placeholder="max" type="text" ng-model="vmFilter.dataForm.price_max" name="price_max" required)
+                        button.send(ng-click='vmFilter.send(vmFilter.dataForm,formValidate,vmFilter.action,"filter")')
+                            span Go
+                        //pre {{vmFilter.dataForm|json}}
+                div.block-filter
+                    label Country of origin
+                    // dataForm.manufacture - название входной коллекции, dataForm.manufacturerSelected - выбранный option, т.е. чтобы получить результурующее value
+                    //данного select нужно обратиться {{dataForm.manufacturerSelected[0].value}}
+                    custom-select(input-model="dataForm.countries" output-model="dataForm.countriesSelected")
+                        each item,index in selects.countries
+                            if index == 0
+                                options(value="#{item.value}" selected) #{item.maker}
+                            else
+                                options(value="#{item.value}") #{item.maker}
         .wrapper-list-products
             .container
                 ul.list-products
@@ -105,7 +113,7 @@ block content
                         a.wrapper-img(href="./product-details.html")
                             img(src="./images/popular-products/1.jpg")
                         .wrapper-adv
-                            a.add-to-cart
+                            a.add-to-cart(href="./cart.html")
                             a.more(href="./product-details.html") learn more...
                         h2
                             a(href="./product-details.html") Escale
@@ -126,7 +134,7 @@ block content
                             a.wrapper-img(href="./product-details.html")
                                 img(src="./images/popular-products/1.jpg")
                             .wrapper-adv
-                                a.add-to-cart
+                                a.add-to-cart(href="./cart.html")
                                 a.more(href="./product-details.html") learn more...
                             h2
                                 a(href="./product-details.html") Escale

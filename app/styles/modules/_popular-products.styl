@@ -1,11 +1,16 @@
 .popular-products
   background-color: #000
+  border-bottom: 1px solid #4d4d4d
   .title
     text-transform: uppercase
     color: #fff
     text-align: center
     lt(30px)
-    padding: 70px 0
+    padding: 70px 0 70px
+
+.bg-slider
+  .frame
+    height: 585px
 
 .frame
   .list-products
@@ -22,18 +27,11 @@
     width: 235px
     tn(.5s)
     &:hover
+      .wrapper-img
+        opacity: .4
+        transform: scale(.9)
       &:after, &:before
         transform: scale(1)
-    &:after
-      tn(.5s)
-      border-right: 1px solid #818181
-      border-left: 1px solid #818181
-      transform: scale(1, 0)
-    &:before
-      tn(.5s)
-      border-top: 1px solid #818181
-      border-bottom: 1px solid #818181
-      transform: scale(0, 1)
     &:after, &:before
       position: absolute
       z-index: 3
@@ -42,6 +40,18 @@
       content ''
       width: 100%
       height: 100%
+    &:after
+      tn(.5s)
+      border-right: 1px solid #818181
+      border-left: 1px solid #818181
+      transform: scale(1, 0)
+      width: calc(100% - 2px)
+    &:before
+      tn(.5s)
+      border-top: 1px solid #818181
+      border-bottom: 1px solid #818181
+      transform: scale(0, 1)
+      height: calc(100% - 2px)
     &:nth-of-type(4n-3)
       > span
         display: block
@@ -63,7 +73,7 @@
           top: 50%
     .wrapper-adv
       position: absolute
-      z-index: 1
+      z-index: 4
       display: block
       width: 100%
       height: 312px
@@ -76,11 +86,13 @@
         height: 70px
         background-color: #facb0c
         position: absolute
-        z-index: 1
+        z-index: 4
         top: 40%
         left: 50%
         margin-top: -25px
         margin-left: -25px
+        &:hover
+          background-color: #fedb4f
         &:after
           font-size: 20px !important
           color: #fff
@@ -105,12 +117,16 @@
         top: 60%
         left: 50%
         margin-left: -25px
+        tn(.5s)
+        &:hover
+          color: #fedb4f
     .wrapper-img
+      tn(.5s)
       display: block
       width: 100%
       height: 312px
       position: relative
-      z-index: 0
+      z-index: 2
       text-decoration: none
       &:after
         content: ""

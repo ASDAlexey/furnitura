@@ -18,16 +18,6 @@
       &:hover
         &:after, &:before
           transform: scale(1)
-      &:after
-        tn(.5s)
-        border-right: 1px solid #818181
-        border-left: 1px solid #818181
-        transform: scale(1, 0)
-      &:before
-        tn(.5s)
-        border-top: 1px solid #818181
-        border-bottom: 1px solid #818181
-        transform: scale(0, 1)
       &:after, &:before
         position: absolute
         z-index: 3
@@ -38,9 +28,22 @@
         margin-top: -112px
         width: 224px
         height: 224px
+      &:after
+        tn(.5s)
+        border-right: 1px solid #818181
+        border-left: 1px solid #818181
+        transform: scale(1, 0)
+        width: 222px
+      &:before
+        tn(.5s)
+        border-top: 1px solid #818181
+        border-bottom: 1px solid #818181
+        transform: scale(0, 1)
+        height: 222px
     > a
       display: block
       text-decoration: none
-      text-align: center
-      color: #444444
-      padding: 20px 0
+      &:nth-of-type(2)
+        text-align: center
+        color: #444444
+        padding: 20px 0

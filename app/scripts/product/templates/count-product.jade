@@ -1,0 +1,6 @@
+.block-quentity-switchers
+    .left-btn(ng-click="changeQuantity(-1)")
+    .right-btn(ng-click="changeQuantity(1)")
+    input(type="text" ng-model="quantity" only-int-numbers)
+    // В случае если есть беспланая доставка
+    span.free-shipping(ng-if="isShowFreeShipping") Free Shipping

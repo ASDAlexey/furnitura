@@ -9,6 +9,11 @@
     <meta name="keywords" content="Keywords">
     <title>Touch of Europe</title>
     <link rel="icon" type="image/png" href="./images/favicon.png">
+    <style>
+      [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+          display: none !important;
+      }
+    </style>
     <script async>var loadCSSFiles=function(){var e,t,a=["./styles/application.css"],n=document.getElementsByTagName("head")[0];for(t=0;t<a.length;t++)e=document.createElement("link"),e.rel="stylesheet",e.href=a[t],n.appendChild(e)},raf=requestAnimationFrame||mozRequestAnimationFrame||webkitRequestAnimationFrame||msRequestAnimationFrame;raf?(raf(loadCSSFiles)):window.addEventListener("load",loadCSSFiles);</script>
   </head>
   <body ng-app="App" pointer-events-scroll>
@@ -27,33 +32,12 @@
                 <!--        form(method="post" action="#")-->
                 <!--            button Sign out-->
               </div>
-              <div class="mini-cart"><a href=""><span>0</span></a>
-                <!--если элементов больше 5, то добавляем класс div.inner-mini-cart-->
+              <div ng-controller="MiniCartCtrl as mini_cart" ng-init="mini_cart.setProducts([{&quot;link&quot;:&quot;./product-details.html&quot;,&quot;src&quot;:&quot;./images/cart/1.jpg&quot;,&quot;name&quot;:&quot;MASIERO Drylight S11 Outdoor Chandelier&quot;,&quot;price_usd&quot;:800,&quot;price_usd_discont&quot;:273,&quot;price_cad&quot;:700,&quot;price_cad_discont&quot;:279,&quot;quantity&quot;:1},{&quot;link&quot;:&quot;./product-details.html&quot;,&quot;src&quot;:&quot;./images/cart/2.jpg&quot;,&quot;name&quot;:&quot;MASIERO Drylight S12 Outdoor Chandelier&quot;,&quot;price_usd&quot;:1000,&quot;price_usd_discont&quot;:273,&quot;price_cad&quot;:1100,&quot;price_cad_discont&quot;:279,&quot;quantity&quot;:1},{&quot;link&quot;:&quot;./product-details.html&quot;,&quot;src&quot;:&quot;./images/cart/1.jpg&quot;,&quot;name&quot;:&quot;MASIERO Drylight S13 Outdoor Chandelier&quot;,&quot;price_usd&quot;:400,&quot;price_usd_discont&quot;:273,&quot;price_cad&quot;:410.67,&quot;price_cad_discont&quot;:279,&quot;quantity&quot;:1}])" class="mini-cart"><a href="./cart.html"><span ng-bind="mini_cart.getCount()">0</span></a>
                 <div class="inner-mini-cart">
-                  <ul>
-                    <li><a href="./product-details.html" class="wrapper-img"><img src="./images/mini-cart/1.jpg"></a>
+                  <ul ng-cloak>
+                    <li ng-repeat="product in mini_cart.CartService.products"><a ng-href="{{product.link}}" class="wrapper-img"><img ng-src="{{product.src}}"></a>
                       <div class="product-info">
-                        <h2><a href="./product-details.html">MASIERO Drylight S12 Outdoor Chandelier</a></h2><span>Quantity: 1</span>
-                      </div>
-                    </li>
-                    <li><a href="./product-details.html" class="wrapper-img"><img src="./images/mini-cart/2.jpg"></a>
-                      <div class="product-info">
-                        <h2><a href="./product-details.html">MASIERO Drylight S12 Outdoor Chandelier</a></h2><span>Quantity: 1</span>
-                      </div>
-                    </li>
-                    <li><a href="./product-details.html" class="wrapper-img"><img src="./images/mini-cart/2.jpg"></a>
-                      <div class="product-info">
-                        <h2><a href="./product-details.html">MASIERO Drylight S12 Outdoor Chandelier</a></h2><span>Quantity: 1</span>
-                      </div>
-                    </li>
-                    <li><a href="./product-details.html" class="wrapper-img"><img src="./images/mini-cart/1.jpg"></a>
-                      <div class="product-info">
-                        <h2><a href="./product-details.html">MASIERO Drylight S12 Outdoor Chandelier</a></h2><span>Quantity: 1</span>
-                      </div>
-                    </li>
-                    <li><a href="./product-details.html" class="wrapper-img"><img src="./images/mini-cart/2.jpg"></a>
-                      <div class="product-info">
-                        <h2><a href="./product-details.html">MASIERO Drylight S12 Outdoor Chandelier</a></h2><span>Quantity: 1</span>
+                        <h2><a href="{{product.link}}" ng-bind="product.name"></a></h2><span>Quantity: {{product.quantity}}</span>
                       </div>
                     </li>
                   </ul><a href="./cart.html" class="to-cart">View cart</a>
@@ -114,10 +98,10 @@
               <div ng-controller="SearchCtrl as vSearch" ng-class="{'active':vSearch.isShowSearch==true}" class="search">
                 <form name="formValidate" novalidate action="./" class="form-validate">
                   <div class="wrapper-search-block">
-                    <input type="text" name="search" placeholder="Search" ng-model="vSearch.dataForm.search" autocomplete="off" ng-focus="vSearch.isShowSearch=true" ng-blur="vSearch.blurSearch(dataForm.search)">
+                    <input type="text" name="search" placeholder="Search" ng-model="vSearch.dataForm.search" autocomplete="off" ng-focus="vSearch.isShowSearch=true" ng-blur="vSearch.blurSearch(vSearch.dataForm.search)">
                   </div>
                   <button class="send"><span class="fa fa-search"></span></button>
-                  <button class="send-button">find</button><span ng-click="resetSearch()" class="fa fa-close close"></span>
+                  <button class="send-button">find</button><span ng-click="vSearch.resetSearch()" class="fa fa-close close"></span>
                 </form>
               </div>
             </div>
@@ -146,34 +130,34 @@
             <div class="text">
               <h1>Use the form below to contact us</h1>
               <p>A company representative will contact you promptly</p>
-              <form name="formValidate" ng-controller="FormCtrl" ng-init="action='./controller.php'" novalidate class="form-validate">
+              <form name="formValidate" ng-controller="App.form.FormCtrl as vm" ng-init="vm.action='./controller.php'" novalidate class="form-validate">
                 <div>
-                  <input id="name_contact" type="text" name="name_contact" ng-model="dataForm.data.name" autocomplete="off" required>
+                  <input id="name_contact" type="text" name="name_contact" ng-model="vm.dataForm.data.name" autocomplete="off" required>
                   <label for="name_contact"><span>Name:</span></label>
                 </div>
                 <div>
-                  <input id="email_contact" type="text" name="email_contact" ng-model="dataForm.data.email" autocomplete="off" required>
+                  <input id="email_contact" type="email" name="email_contact" ng-model="vm.dataForm.data.email" autocomplete="off" required>
                   <label for="email_contact"><span>Email:</span></label>
                 </div>
                 <div>
-                  <input id="subject_contact" type="text" name="subject_contact" ng-model="dataForm.data.subject" autocomplete="off" required>
+                  <input id="subject_contact" type="text" name="subject_contact" ng-model="vm.dataForm.data.subject" autocomplete="off" required>
                   <label for="subject_contact"><span>Subject:</span></label>
                 </div>
                 <div>
-                  <textarea id="msg_contact" type="text" name="msg_contact" ng-model="dataForm.data.msg" autocomplete="off" required></textarea>
+                  <textarea id="msg_contact" type="text" name="msg_contact" ng-model="vm.dataForm.data.msg" autocomplete="off" required></textarea>
                   <label for="msg_contact"><span>Message:</span></label>
                 </div>
                 <div class="wrapper-send">
-                  <button ng-click="send(dataForm,formValidate,action)" class="send"><span>Submit</span></button>
+                  <button ng-click="vm.send(vm.dataForm,formValidate,vm.action)" class="send"><span>Submit</span></button>
                 </div>
-                <input type="hidden" name="task" ng-init="dataForm.hidden.task=&quot;contacts&quot;" ng-model="dataForm.hidden.task">
+                <input type="hidden" name="task" ng-init="vm.dataForm.hidden.task=&quot;contacts&quot;" ng-model="vm.dataForm.hidden.task">
               </form>
             </div>
           </div>
         </section>
-        <section ng-controller="GMapCtrl" class="wrapper-map">
-          <ui-gmap-google-map center="{&quot;latitude&quot;: 56.1482938,&quot;longitude&quot;: 47.2592382}" zoom="16" options="options">
-            <ui-gmap-marker coords="{&quot;latitude&quot;: 56.1482938,&quot;longitude&quot;: 47.2592382}" options="marker.options" idkey="1" ng-init="marker.options.icon='images/map-logo.png'"></ui-gmap-marker>
+        <section ng-controller="App.map.GMapCtrl as vm" class="wrapper-map">
+          <ui-gmap-google-map center="{&quot;latitude&quot;: 45.511559,&quot;longitude&quot;:-75.69726}" zoom="10" options="vm.options">
+            <ui-gmap-marker coords="{&quot;latitude&quot;: 45.511559,&quot;longitude&quot;:-75.69726 }" options="vm.marker.options" idkey="1" ng-init="vm.marker.options.icon='images/map-logo.png'"></ui-gmap-marker>
           </ui-gmap-google-map>
         </section>
       </main>

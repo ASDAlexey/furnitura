@@ -1,0 +1,314 @@
+.cart
+  background-color: #000
+
+.cart__title
+  padding: 75px 0 47px
+  color: #fff
+  ll(30px)
+  font-weight 300
+  text-transform: uppercase
+
+.wrapper-block
+  after()
+  font-size: 0
+  > *
+    dibt()
+
+.product-list
+  float: left
+  width: 680px
+  .fa-trash
+    font-size: 18px
+    color: #7f7f7f
+    tn(.5s)
+    &:hover
+      color: #facb0c
+  th, td
+    width: 1%
+    text-align: center
+    border-bottom: 1px solid #4c4c4c
+    &:first-child
+      width: 110px
+      text-align: left
+    &:nth-child(2)
+      width: 245px
+    &:nth-child(3)
+      width: 110px
+    &:nth-child(4)
+      width: 102px
+  th
+    text-align: left
+    padding: 5px 0
+  td
+    &:first-child
+      padding: 20px 0
+    &:nth-child(2)
+      text-align: left
+
+.product-list__title-list
+  color: #a2a2a2
+  ll(18px)
+
+.product-list__item__wrapper-img
+  dibt()
+  text-decoration: none
+  width: 110px
+  height: 90px
+  overflow hidden
+  position: relative
+  z-index: 0
+  img
+    position: absolute
+    z-index: 1
+    top: 50%
+    left: 50%
+    transform: translate(-50%, -50%)
+    max-width: 98%
+    max-height: 98%
+
+.product-list__item__link
+  text-decoration: none
+  color: #fff
+  lr(16px, 1.4)
+
+.product-list__item__price
+  margin-top: 9px
+  padding-left: 37px
+  &:first-child
+    margin-top: 0
+  > div
+    text-align: left
+    lr(14px)
+    &:first-child
+      position: relative
+      z-index: 0
+      margin-bottom: 4px
+      span
+        color: #fff
+        dibm()
+        &:first-child
+          right: 100%
+          position: absolute
+          z-index: 1
+          margin-right: 8px
+          color: #747474
+          top: 3px
+        &:nth-child(2)
+          font-size: 18px
+    &:nth-child(2)
+      del
+        color: #facb0c
+
+.order-details
+  float: right
+  width: 280px
+  position: relative
+  z-index: 0
+  &.step-2
+    &:after
+      left: 0
+  &:after
+    content: ""
+    position: absolute
+    z-index: 1
+    top: 39px
+    left: 12px
+    height: calc(100% - 137px)
+    width: 1px
+    background-color: #4d4d4d
+
+.order-details__title
+  color: #a2a2a2
+  border-bottom: 1px solid #4c4c4c
+  ll(18px)
+  padding: 7px 0 3px 22px
+
+.list-item
+  font-size: 0
+
+.list-item__title
+  ll(18px)
+  color: #a2a2a2
+  width: 146px
+  dibt()
+  padding-top: 24px
+
+.list-item__price-block-container
+  dibt()
+  width: calc(100% - 146px)
+  margin-top: 6px
+  &:first-of-type
+    margin-top: 15px
+
+.list-item__price-block
+  display: block
+  margin-top: 6px
+
+.list-item__price-block--half
+  overflow hidden
+  white-space nowrap
+  min-width: calc(50% - 4px)
+  dibt()
+  &:first-of-type
+    margin-right: 8px
+
+.list-item__currency
+  display: block
+  color: #7f7f7f
+
+.list-item__currency-count
+  color: #fff
+
+.list-item__currency-count--size-up
+  font-size: 26px
+  display: block
+
+$style
+  padding: 2px 9px 4px
+
+.list-item__currency-count--offset
+  margin: 4px 0 7px
+  @extend $style
+
+.list-item__currency-count--grey
+  background-color: #808080
+  color: #000
+
+.list-item__currency-count--white
+  background-color: #fff
+  color: #000
+
+.list-item__currency-discount del
+  color: #facb0c
+
+.list-item__currency-discount--size-up
+  font-size: 18px
+
+.list-item__text-style
+  display: block
+  lr(14px)
+  margin-top: 4px
+
+.list-item__text-style-increase
+  font-size: 18px
+
+.discont-block
+  background-color: #383838
+  padding: 15px
+  margin: 22px 0 0
+
+.discont-block__title
+  color: #acacac
+  ll(18px)
+  margin-bottom: 11px
+
+.order-details__inner-block
+  margin-left: 25px
+  position: relative
+  z-index: 0
+  &:after
+    content: ""
+    position: absolute
+    z-index: 1
+    top: 13px
+    left: -14px
+    height: calc(100% - 13px)
+    width: 1px
+
+.discont-block__form
+  font-size: 0
+  white-space nowrap
+
+.discont-block__input
+  dibt()
+  width: 120px
+  color: #9c9c9c
+  border-bottom: 1px solid #9c9c9c
+  height: 21px
+  margin-right: 6px
+  lr(14px)
+
+.discont-block__button
+  tn(.5s)
+  text-align: center
+  width: 100px
+  height: 21px
+  background-color: #facb0c
+  color: #000
+  padding-bottom: 2px
+  lr(14px)
+  tn(.5s)
+  &:hover
+    background-color: #ffe26b
+
+.order-details__link
+  position: relative
+  z-index: 0
+  ll(16px)
+  color: #808080
+  &:after
+    content: ""
+    position: absolute
+    z-index: 1
+    top: 50%
+    left: 0
+    tt(0, -50%)
+  &:first-of-type
+    margin-top: 46px
+
+.order-details__link--next
+  display: block
+  background-color: #facb0c
+  color: #000
+  font-size: 22px
+  padding: 8px 0 6px 37px
+  position: relative
+  z-index: 0
+  margin-bottom: 15px
+  &:after
+    content: ""
+    position: absolute
+    z-index: 1
+    top: 50%
+    left: 12px
+    tt(0, -50%)
+    sprite($arrow)
+    tn(.5s)
+    &:hover
+      background-color: #e3b80c
+
+.order-details__link--prev
+  float: right
+  &:after
+    left: -20px
+    sprite($arrow_prev)
+
+.list-item__currency--offset-left
+  padding-left: 9px
+
+.cart-execution-title
+  ll(30px)
+  color: #fff
+  text-transform: uppercase
+  font-weight 300
+
+.list-payments
+  margin-top: 48px
+  font-size: 0
+  > li
+    dibt()
+    .wrapper-img
+      position: relative
+      z-index: 0
+      width: 118px
+      height: 40px
+      border: 1px solid #808080
+      tn(.5s)
+      overflow hidden
+      img
+        margin-top: 1px
+        max-height 98%
+        max-width 98%
+        aa(1)
+      &:hover
+        background-color: #facb0c

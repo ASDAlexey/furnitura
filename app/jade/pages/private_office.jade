@@ -1,0 +1,51 @@
+//- index.jade
+extends ../layout.jade
+block content
+    section.private-offfice
+        header.header-private-office
+            .container
+                h1.title Ivan Ivanov
+        .tab-content(ng-controller="App.tabs.TabCtrl as tab")
+            .container
+                ul.list-tabs-links(ng-init="tab.currentTab=1")
+                    li
+                        a(ng-class="{'active':tab.currentTab==0}" ng-click="tab.switchTab(0)") Your Purchases
+                    li
+                        a(ng-class="{'active':tab.currentTab==1}" ng-click="tab.switchTab(1)") Shipping Addresses
+                    li
+                        a(ng-class="{'active':tab.currentTab==3}" ng-click="tab.switchTab(3)") Profile Info
+                    li
+                        a(ng-class="{'active':tab.currentTab==4}" ng-click="tab.switchTab(4)") Password
+                    li
+                        a(ng-class="{'active':tab.currentTab==5}" ng-click="tab.switchTab(5)") Advanced Settings
+            ul.list-tabs
+                li.animated.lightSpeedIn(ng-if="tab.currentTab==0")
+                    .container
+                        h2 Your Purchases
+                        p You haven’t placed any orders yet,
+                            a(href="./category.html") check out over 3 million products
+                            | curated by home design experts.
+                li.animated.lightSpeedIn(ng-if="tab.currentTab==1")
+                    .container
+                        h2 Your Purchases
+                        p You haven’t placed any orders yet,
+                            a(href="./category.html") check out over 3 million products
+                            | curated by home design experts.
+                li.animated.lightSpeedIn(ng-if="tab.currentTab==3")
+                    .container
+                        h2 Your Purchases
+                        p You haven’t placed any orders yet,
+                            a(href="./category.html") check out over 3 million products
+                            | curated by home design experts.
+                li.animated.lightSpeedIn(ng-if="tab.currentTab==4")
+                    .container
+                        h2 Your Purchases
+                        p You haven’t placed any orders yet,
+                            a(href="./category.html") check out over 3 million products
+                            | curated by home design experts.
+                li.animated.lightSpeedIn(ng-if="tab.currentTab==5")
+                    .container
+                        h2 Your Purchases
+                        p You haven’t placed any orders yet,
+                            a(href="./category.html") check out over 3 million products
+                            | curated by home design experts.

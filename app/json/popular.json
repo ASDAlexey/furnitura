@@ -1,0 +1,101 @@
+[
+  {
+    "src": "./images/popular-products/1.jpg",
+    "link": "./product-details.html",
+    "cart_link": "./cart.html",
+    "product_name": "Escale",
+    "product_description": "Fluid Pendant Light",
+    "price_usd": 10000,
+    "discount_usd": 273,
+    "price_cad": 11000,
+    "discount_cad": 273
+  },
+  {
+    "src": "./images/popular-products/1.jpg",
+    "link": "./product-details.html",
+    "cart_link": "./cart.html",
+    "product_name": "Escale2",
+    "product_description": "Fluid Pendant Light",
+    "price_usd": 10000,
+    "discount_usd": 273,
+    "price_cad": 11000,
+    "discount_cad": 273
+  },
+  {
+    "src": "./images/popular-products/1.jpg",
+    "link": "./product-details.html",
+    "cart_link": "./cart.html",
+    "product_name": "Escale3",
+    "product_description": "Fluid Pendant Light",
+    "price_usd": 10000,
+    "discount_usd": 273,
+    "price_cad": 11000,
+    "discount_cad": 273
+  },
+  {
+    "src": "./images/popular-products/1.jpg",
+    "link": "./product-details.html",
+    "cart_link": "./cart.html",
+    "product_name": "Escale4",
+    "product_description": "Fluid Pendant Light",
+    "price_usd": 10000,
+    "discount_usd": 273,
+    "price_cad": 11000,
+    "discount_cad": 273
+  },
+  {
+    "src": "./images/popular-products/1.jpg",
+    "link": "./product-details.html",
+    "cart_link": "./cart.html",
+    "product_name": "Escale5",
+    "product_description": "Fluid Pendant Light",
+    "price_usd": 10000,
+    "discount_usd": 273,
+    "price_cad": 11000,
+    "discount_cad": 273
+  },
+  {
+    "src": "./images/popular-products/1.jpg",
+    "link": "./product-details.html",
+    "cart_link": "./cart.html",
+    "product_name": "Escale6",
+    "product_description": "Fluid Pendant Light",
+    "price_usd": 10000,
+    "discount_usd": 273,
+    "price_cad": 11000,
+    "discount_cad": 273
+  },
+  {
+    "src": "./images/popular-products/1.jpg",
+    "link": "./product-details.html",
+    "cart_link": "./cart.html",
+    "product_name": "Escale7",
+    "product_description": "Fluid Pendant Light",
+    "price_usd": 10000,
+    "discount_usd": 273,
+    "price_cad": 11000,
+    "discount_cad": 273
+  },
+  {
+    "src": "./images/popular-products/1.jpg",
+    "link": "./product-details.html",
+    "cart_link": "./cart.html",
+    "product_name": "Escale8",
+    "product_description": "Fluid Pendant Light",
+    "price_usd": 10000,
+    "discount_usd": 273,
+    "price_cad": 11000,
+    "discount_cad": 273
+  },
+  {
+    "src": "./images/popular-products/1.jpg",
+    "link": "./product-details.html",
+    "cart_link": "./cart.html",
+    "product_name": "Escale9",
+    "product_description": "Fluid Pendant Light",
+    "price_usd": 10000,
+    "discount_usd": 273,
+    "price_cad": 11000,
+    "discount_cad": 273
+  }
+]

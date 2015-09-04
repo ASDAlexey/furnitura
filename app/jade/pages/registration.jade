@@ -1,0 +1,30 @@
+//- index.jade
+extends ../layout.jade
+block content
+    section.auth-page
+        .container
+            form.form-validate#auth-reg(name="formValidate" ng-controller="App.form.FormAuthCtrl as vm" ng-init="vm.action='./controller.php'" novalidate)
+                div
+                    input#name_auth(type="email" name="name_auth" ng-model='vm.dataForm.data.name' autocomplete="off" required)
+                    label(for="name_auth")
+                        span Username or Email:
+                div
+                    input#pwd(type="password" name="password_auth" ng-model='vm.dataForm.data.pwd' autocomplete="off" required)
+                    label(for="pwd")
+                        span Password:
+                div
+                    input#re_pwd.re_pwd(type="password" name="password_auth" ng-model='vm.dataForm.data.re_pwd' match="vm.dataForm.data.pwd" autocomplete="off" required)
+                    label(for="re_pwd")
+                        span Re-password:
+                .wrapper-send
+                    span.wrapper-check-sign
+                        input#keep_sign(type="checkbox" name="remember" value="yes")
+                        label(for="keep_sign") Keep me signed in
+                            span
+                    button.send(ng-click='vm.send(vm.dataForm,formValidate,vm.action,"auth-reg")')
+                        span Sign in
+                input(type="hidden" name="option" value="com_users")
+                input(type="hidden" name="task" value="user.login")
+                input(type="hidden" name="0e23c40c57a567381354bfedc95271f4" value="1")
+            div.link-to-auth
+                a(href="./sign_in.html") Go to sign in?

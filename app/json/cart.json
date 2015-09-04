@@ -1,0 +1,32 @@
+[
+  {
+    "link": "./product-details.html",
+    "src": "./images/cart/1.jpg",
+    "name": "MASIERO Drylight S11 Outdoor Chandelier",
+    "price_usd": 800,
+    "price_usd_discont": 273,
+    "price_cad": 700,
+    "price_cad_discont": 279,
+    "quantity": 1
+  },
+  {
+    "link": "./product-details.html",
+    "src": "./images/cart/2.jpg",
+    "name": "MASIERO Drylight S12 Outdoor Chandelier",
+    "price_usd": 1000,
+    "price_usd_discont": 273,
+    "price_cad": 1100,
+    "price_cad_discont": 279,
+    "quantity": 1
+  },
+  {
+    "link": "./product-details.html",
+    "src": "./images/cart/1.jpg",
+    "name": "MASIERO Drylight S13 Outdoor Chandelier",
+    "price_usd": 400,
+    "price_usd_discont": 273,
+    "price_cad": 410.67,
+    "price_cad_discont": 279,
+    "quantity": 1
+  }
+]

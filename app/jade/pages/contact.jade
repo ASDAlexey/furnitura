@@ -25,27 +25,27 @@ block content
             .text
                 h1 Use the form below to contact us
                 p A company representative will contact you promptly
-                form.form-validate(name="formValidate" ng-controller="FormCtrl" ng-init="action='./controller.php'" novalidate)
+                form.form-validate(name="formValidate" ng-controller="App.form.FormCtrl as vm" ng-init="vm.action='./controller.php'" novalidate)
                     div
-                        input#name_contact(type="text" name="name_contact" ng-model='dataForm.data.name' autocomplete="off" required)
+                        input#name_contact(type="text" name="name_contact" ng-model='vm.dataForm.data.name' autocomplete="off" required)
                         label(for="name_contact")
                             span Name:
                     div
-                        input#email_contact(type="text" name="email_contact" ng-model='dataForm.data.email' autocomplete="off" required)
+                        input#email_contact(type="email" name="email_contact" ng-model='vm.dataForm.data.email' autocomplete="off" required)
                         label(for="email_contact")
                             span Email:
                     div
-                        input#subject_contact(type="text" name="subject_contact" ng-model='dataForm.data.subject' autocomplete="off" required)
+                        input#subject_contact(type="text" name="subject_contact" ng-model='vm.dataForm.data.subject' autocomplete="off" required)
                         label(for="subject_contact")
                             span Subject:
                     div
-                        textarea#msg_contact(type="text" name="msg_contact" ng-model='dataForm.data.msg' autocomplete="off" required)
+                        textarea#msg_contact(type="text" name="msg_contact" ng-model='vm.dataForm.data.msg' autocomplete="off" required)
                         label(for="msg_contact")
                             span Message:
                     .wrapper-send
-                        button.send(ng-click='send(dataForm,formValidate,action)')
+                        button.send(ng-click='vm.send(vm.dataForm,formValidate,vm.action)')
                             span Submit
-                    input(type="hidden" name="task" ng-init='dataForm.hidden.task="contacts"' ng-model='dataForm.hidden.task')
-    section.wrapper-map(ng-controller="GMapCtrl")
-        ui-gmap-google-map(center='{"latitude": 56.1482938,"longitude": 47.2592382}' zoom='16' options="options")
-            ui-gmap-marker(coords='{"latitude": 56.1482938,"longitude": 47.2592382}' options="marker.options" idkey="1" ng-init="marker.options.icon='images/map-logo.png'")
+                    input(type="hidden" name="task" ng-init='vm.dataForm.hidden.task="contacts"' ng-model='vm.dataForm.hidden.task')
+    section.wrapper-map(ng-controller="App.map.GMapCtrl as vm")
+        ui-gmap-google-map(center='{"latitude": 45.511559,"longitude":-75.69726}' zoom='10' options="vm.options")
+            ui-gmap-marker(coords='{"latitude": 45.511559,"longitude":-75.69726 }' options="vm.marker.options" idkey="1" ng-init="vm.marker.options.icon='images/map-logo.png'")

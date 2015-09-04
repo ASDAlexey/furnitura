@@ -9,6 +9,11 @@
     <meta name="keywords" content="Keywords">
     <title>Touch of Europe</title>
     <link rel="icon" type="image/png" href="./images/favicon.png">
+    <style>
+      [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+          display: none !important;
+      }
+    </style>
     <script async>var loadCSSFiles=function(){var e,t,a=["./styles/application.css"],n=document.getElementsByTagName("head")[0];for(t=0;t<a.length;t++)e=document.createElement("link"),e.rel="stylesheet",e.href=a[t],n.appendChild(e)},raf=requestAnimationFrame||mozRequestAnimationFrame||webkitRequestAnimationFrame||msRequestAnimationFrame;raf?(raf(loadCSSFiles)):window.addEventListener("load",loadCSSFiles);</script>
   </head>
   <body ng-app="App" pointer-events-scroll>
@@ -27,33 +32,12 @@
                 <!--        form(method="post" action="#")-->
                 <!--            button Sign out-->
               </div>
-              <div class="mini-cart"><a href=""><span>0</span></a>
-                <!--если элементов больше 5, то добавляем класс div.inner-mini-cart-->
+              <div ng-controller="MiniCartCtrl as mini_cart" ng-init="mini_cart.setProducts([{&quot;link&quot;:&quot;./product-details.html&quot;,&quot;src&quot;:&quot;./images/cart/1.jpg&quot;,&quot;name&quot;:&quot;MASIERO Drylight S11 Outdoor Chandelier&quot;,&quot;price_usd&quot;:800,&quot;price_usd_discont&quot;:273,&quot;price_cad&quot;:700,&quot;price_cad_discont&quot;:279,&quot;quantity&quot;:1},{&quot;link&quot;:&quot;./product-details.html&quot;,&quot;src&quot;:&quot;./images/cart/2.jpg&quot;,&quot;name&quot;:&quot;MASIERO Drylight S12 Outdoor Chandelier&quot;,&quot;price_usd&quot;:1000,&quot;price_usd_discont&quot;:273,&quot;price_cad&quot;:1100,&quot;price_cad_discont&quot;:279,&quot;quantity&quot;:1},{&quot;link&quot;:&quot;./product-details.html&quot;,&quot;src&quot;:&quot;./images/cart/1.jpg&quot;,&quot;name&quot;:&quot;MASIERO Drylight S13 Outdoor Chandelier&quot;,&quot;price_usd&quot;:400,&quot;price_usd_discont&quot;:273,&quot;price_cad&quot;:410.67,&quot;price_cad_discont&quot;:279,&quot;quantity&quot;:1}])" class="mini-cart"><a href="./cart.html"><span ng-bind="mini_cart.getCount()">0</span></a>
                 <div class="inner-mini-cart">
-                  <ul>
-                    <li><a href="./product-details.html" class="wrapper-img"><img src="./images/mini-cart/1.jpg"></a>
+                  <ul ng-cloak>
+                    <li ng-repeat="product in mini_cart.CartService.products"><a ng-href="{{product.link}}" class="wrapper-img"><img ng-src="{{product.src}}"></a>
                       <div class="product-info">
-                        <h2><a href="./product-details.html">MASIERO Drylight S12 Outdoor Chandelier</a></h2><span>Quantity: 1</span>
-                      </div>
-                    </li>
-                    <li><a href="./product-details.html" class="wrapper-img"><img src="./images/mini-cart/2.jpg"></a>
-                      <div class="product-info">
-                        <h2><a href="./product-details.html">MASIERO Drylight S12 Outdoor Chandelier</a></h2><span>Quantity: 1</span>
-                      </div>
-                    </li>
-                    <li><a href="./product-details.html" class="wrapper-img"><img src="./images/mini-cart/2.jpg"></a>
-                      <div class="product-info">
-                        <h2><a href="./product-details.html">MASIERO Drylight S12 Outdoor Chandelier</a></h2><span>Quantity: 1</span>
-                      </div>
-                    </li>
-                    <li><a href="./product-details.html" class="wrapper-img"><img src="./images/mini-cart/1.jpg"></a>
-                      <div class="product-info">
-                        <h2><a href="./product-details.html">MASIERO Drylight S12 Outdoor Chandelier</a></h2><span>Quantity: 1</span>
-                      </div>
-                    </li>
-                    <li><a href="./product-details.html" class="wrapper-img"><img src="./images/mini-cart/2.jpg"></a>
-                      <div class="product-info">
-                        <h2><a href="./product-details.html">MASIERO Drylight S12 Outdoor Chandelier</a></h2><span>Quantity: 1</span>
+                        <h2><a href="{{product.link}}" ng-bind="product.name"></a></h2><span>Quantity: {{product.quantity}}</span>
                       </div>
                     </li>
                   </ul><a href="./cart.html" class="to-cart">View cart</a>
@@ -114,10 +98,10 @@
               <div ng-controller="SearchCtrl as vSearch" ng-class="{'active':vSearch.isShowSearch==true}" class="search">
                 <form name="formValidate" novalidate action="./" class="form-validate">
                   <div class="wrapper-search-block">
-                    <input type="text" name="search" placeholder="Search" ng-model="vSearch.dataForm.search" autocomplete="off" ng-focus="vSearch.isShowSearch=true" ng-blur="vSearch.blurSearch(dataForm.search)">
+                    <input type="text" name="search" placeholder="Search" ng-model="vSearch.dataForm.search" autocomplete="off" ng-focus="vSearch.isShowSearch=true" ng-blur="vSearch.blurSearch(vSearch.dataForm.search)">
                   </div>
                   <button class="send"><span class="fa fa-search"></span></button>
-                  <button class="send-button">find</button><span ng-click="resetSearch()" class="fa fa-close close"></span>
+                  <button class="send-button">find</button><span ng-click="vSearch.resetSearch()" class="fa fa-close close"></span>
                 </form>
               </div>
             </div>
@@ -130,78 +114,129 @@
               </ul>
             </div>
         <ul class="list-sub-categories container">
-          <li>
-            <div class="wrapper-img"><img src="./images/sub-category/1.jpg"></div><a href="./category">Modern</a>
-          </li>
-          <li>
-            <div class="wrapper-img"><img src="./images/sub-category/2.jpg"></div><a href="./category">Modern</a>
-          </li>
-          <li>
-            <div class="wrapper-img"><img src="./images/sub-category/3.jpg"></div><a href="./category">Modern</a>
-          </li>
-          <li>
-            <div class="wrapper-img"><img src="./images/sub-category/4.jpg"></div><a href="./category">Modern</a>
-          </li>
-          <li>
-            <div class="wrapper-img"><img src="./images/sub-category/5.jpg"></div><a href="./category">Modern</a>
-          </li>
+          <li><a href="./category.html" class="wrapper-img"><img src="./images/sub-category/1.jpg"></a><a href="./category">Modern</a></li>
+          <li><a href="./category.html" class="wrapper-img"><img src="./images/sub-category/2.jpg"></a><a href="./category">Modern</a></li>
+          <li><a href="./category.html" class="wrapper-img"><img src="./images/sub-category/3.jpg"></a><a href="./category">Modern</a></li>
+          <li><a href="./category.html" class="wrapper-img"><img src="./images/sub-category/4.jpg"></a><a href="./category">Modern</a></li>
+          <li><a href="./category.html" class="wrapper-img"><img src="./images/sub-category/5.jpg"></a><a href="./category">Modern</a></li>
         </ul>
-        <ul class="popular-products">
-          <div class="container">
-            <h1 class="title">Popular products</h1>
-            <div class="slider js_multislides multislides">
+        <ul ng-controller="App.animations.multislidesCtrl as vmSlider" class="popular-products">
+          <h1 class="title">Popular products</h1>
+          <section ng-cloak multislides="popular" count-in-slide="vmSlider.countInSlide" ng-init="vmSlider.popular=[{&quot;src&quot;:&quot;./images/popular-products/1.jpg&quot;,&quot;link&quot;:&quot;./product-details.html&quot;,&quot;cart_link&quot;:&quot;./cart.html&quot;,&quot;product_name&quot;:&quot;Escale&quot;,&quot;product_description&quot;:&quot;Fluid Pendant Light&quot;,&quot;price_usd&quot;:10000,&quot;discount_usd&quot;:273,&quot;price_cad&quot;:11000,&quot;discount_cad&quot;:273},{&quot;src&quot;:&quot;./images/popular-products/1.jpg&quot;,&quot;link&quot;:&quot;./product-details.html&quot;,&quot;cart_link&quot;:&quot;./cart.html&quot;,&quot;product_name&quot;:&quot;Escale2&quot;,&quot;product_description&quot;:&quot;Fluid Pendant Light&quot;,&quot;price_usd&quot;:10000,&quot;discount_usd&quot;:273,&quot;price_cad&quot;:11000,&quot;discount_cad&quot;:273},{&quot;src&quot;:&quot;./images/popular-products/1.jpg&quot;,&quot;link&quot;:&quot;./product-details.html&quot;,&quot;cart_link&quot;:&quot;./cart.html&quot;,&quot;product_name&quot;:&quot;Escale3&quot;,&quot;product_description&quot;:&quot;Fluid Pendant Light&quot;,&quot;price_usd&quot;:10000,&quot;discount_usd&quot;:273,&quot;price_cad&quot;:11000,&quot;discount_cad&quot;:273},{&quot;src&quot;:&quot;./images/popular-products/1.jpg&quot;,&quot;link&quot;:&quot;./product-details.html&quot;,&quot;cart_link&quot;:&quot;./cart.html&quot;,&quot;product_name&quot;:&quot;Escale4&quot;,&quot;product_description&quot;:&quot;Fluid Pendant Light&quot;,&quot;price_usd&quot;:10000,&quot;discount_usd&quot;:273,&quot;price_cad&quot;:11000,&quot;discount_cad&quot;:273},{&quot;src&quot;:&quot;./images/popular-products/1.jpg&quot;,&quot;link&quot;:&quot;./product-details.html&quot;,&quot;cart_link&quot;:&quot;./cart.html&quot;,&quot;product_name&quot;:&quot;Escale5&quot;,&quot;product_description&quot;:&quot;Fluid Pendant Light&quot;,&quot;price_usd&quot;:10000,&quot;discount_usd&quot;:273,&quot;price_cad&quot;:11000,&quot;discount_cad&quot;:273},{&quot;src&quot;:&quot;./images/popular-products/1.jpg&quot;,&quot;link&quot;:&quot;./product-details.html&quot;,&quot;cart_link&quot;:&quot;./cart.html&quot;,&quot;product_name&quot;:&quot;Escale6&quot;,&quot;product_description&quot;:&quot;Fluid Pendant Light&quot;,&quot;price_usd&quot;:10000,&quot;discount_usd&quot;:273,&quot;price_cad&quot;:11000,&quot;discount_cad&quot;:273},{&quot;src&quot;:&quot;./images/popular-products/1.jpg&quot;,&quot;link&quot;:&quot;./product-details.html&quot;,&quot;cart_link&quot;:&quot;./cart.html&quot;,&quot;product_name&quot;:&quot;Escale7&quot;,&quot;product_description&quot;:&quot;Fluid Pendant Light&quot;,&quot;price_usd&quot;:10000,&quot;discount_usd&quot;:273,&quot;price_cad&quot;:11000,&quot;discount_cad&quot;:273},{&quot;src&quot;:&quot;./images/popular-products/1.jpg&quot;,&quot;link&quot;:&quot;./product-details.html&quot;,&quot;cart_link&quot;:&quot;./cart.html&quot;,&quot;product_name&quot;:&quot;Escale8&quot;,&quot;product_description&quot;:&quot;Fluid Pendant Light&quot;,&quot;price_usd&quot;:10000,&quot;discount_usd&quot;:273,&quot;price_cad&quot;:11000,&quot;discount_cad&quot;:273},{&quot;src&quot;:&quot;./images/popular-products/1.jpg&quot;,&quot;link&quot;:&quot;./product-details.html&quot;,&quot;cart_link&quot;:&quot;./cart.html&quot;,&quot;product_name&quot;:&quot;Escale9&quot;,&quot;product_description&quot;:&quot;Fluid Pendant Light&quot;,&quot;price_usd&quot;:10000,&quot;discount_usd&quot;:273,&quot;price_cad&quot;:11000,&quot;discount_cad&quot;:273}]" class="bg-slider animated bounceInLeft">
+            <div ng-if="vmSlider.group.length" class="slider js_simple js_percentage simple multislides">
               <div class="frame js_frame">
-                <ul class="list-products slides js_slides">
-                  <li class="item-product js_slide"><a href="./product-details.html" class="wrapper-img"><img src="./images/popular-products/1.jpg"></a>
-                    <div class="wrapper-adv"><a class="add-to-cart"></a><a href="./product-details.html" class="more">learn more...</a></div>
-                    <h2><a href="./product-details.html">Escale</a></h2>
-                    <p><a href="./product-details.html">Fluid Pendant Light</a></p>
-                    <ul class="price-block">
-                      <li><span>USD</span><span>$10 000</span><span>$273.00</span></li>
-                      <li><span>CAD</span><span>$10 000</span><span>$273.00</span></li>
-                    </ul>
-                  </li>
-                  <li class="item-product js_slide"><a href="./product-details.html" class="wrapper-img"><img src="./images/popular-products/1.jpg"></a>
-                    <div class="wrapper-adv"><a class="add-to-cart"></a><a href="./product-details.html" class="more">learn more...</a></div>
-                    <h2><a href="./product-details.html">Escale</a></h2>
-                    <p><a href="./product-details.html">Fluid Pendant Light</a></p>
-                    <ul class="price-block">
-                      <li><span>USD</span><span>$10 000</span><span>$273.00</span></li>
-                      <li><span>CAD</span><span>$10 000</span><span>$273.00</span></li>
-                    </ul>
-                  </li>
-                  <li class="item-product js_slide"><a href="./product-details.html" class="wrapper-img"><img src="./images/popular-products/1.jpg"></a>
-                    <div class="wrapper-adv"><a class="add-to-cart"></a><a href="./product-details.html" class="more">learn more...</a></div>
-                    <h2><a href="./product-details.html">Escale</a></h2>
-                    <p><a href="./product-details.html">Fluid Pendant Light</a></p>
-                    <ul class="price-block">
-                      <li><span>USD</span><span>$10 000</span><span>$273.00</span></li>
-                      <li><span>CAD</span><span>$10 000</span><span>$273.00</span></li>
-                    </ul>
-                  </li>
-                  <li class="item-product js_slide"><a href="./product-details.html" class="wrapper-img"><img src="./images/popular-products/1.jpg"></a>
-                    <div class="wrapper-adv"><a class="add-to-cart"></a><a href="./product-details.html" class="more">learn more...</a></div>
-                    <h2><a href="./product-details.html">Escale</a></h2>
-                    <p><a href="./product-details.html">Fluid Pendant Light</a></p>
-                    <ul class="price-block">
-                      <li><span>USD</span><span>$10 000</span><span>$273.00</span></li>
-                      <li><span>CAD</span><span>$10 000</span><span>$273.00</span></li>
+                <ul class="slides js_slides">
+                  <li ng-repeat="popularItem in vmSlider.group track by $index" class="js_slide">
+                    <ul class="list-products slides js_slides">
+                      <li ng-repeat="slideProduct in vmSlider.popular | slice:$index*vmSlider.countInSlide:($index+1)*vmSlider.countInSlide" class="item-product js_slide"><a ng-href="{{slideProduct.link}}" class="wrapper-img"><img ng-src="{{slideProduct.src}}"></a>
+                        <div class="wrapper-adv"><a ng-href="{{slideProduct.cart_link}}" class="add-to-cart"></a><a ng-href="{{slideProduct.link}}" class="more">learn more...</a></div>
+                        <h2><a ng-href="{{slideProduct.link}}">{{slideProduct.product_name}}</a></h2>
+                        <p><a ng-href="{{slideProduct.link}}">{{slideProduct.product_description}}</a></p>
+                        <ul class="price-block">
+                          <li><span>USD</span><span>${{slideProduct.price_usd}}</span><span>${{slideProduct.discount_usd}}7</span></li>
+                          <li><span>CAD</span><span>${{slideProduct.price_cad}}</span><span>${{slideProduct.discount_cad}}</span></li>
+                        </ul>
+                      </li>
                     </ul>
                   </li>
                 </ul>
               </div><span class="js_prev prev arrows-bg-slider"></span><span class="js_next next arrows-bg-slider"></span>
             </div>
-          </div>
+          </section>
         </ul>
         <section class="filter-block">
           <header class="header-filter">
             <h1 class="title">Narrow Your Results</h1>
           </header>
+          <div class="content-filter container">
+            <form id="filter" name="formValidate" ng-controller="App.FilterCtrl as vmFilter" novalidate class="form-validate form-filter">
+              <div class="block-filter">
+                <label>Number of bulbs</label>
+                <!-- dataForm.manufacture - название входной коллекции, dataForm.manufacturerSelected - выбранный option, т.е. чтобы получить результурующее value-->
+                <!--данного select нужно обратиться {{dataForm.manufacturerSelected[0].value}}-->
+                <custom-select input-model="vmFilter.dataForm.bulbs" output-model="vmFilter.dataForm.bulbsSelected">
+                  <options value="1" selected>1</options>
+                  <options value="2">2</options>
+                  <options value="3">3</options>
+                  <options value="4">4</options>
+                  <options value="5">5</options>
+                  <options value="6">6</options>
+                  <options value="7">7</options>
+                  <options value="8">8 и более</options>
+                </custom-select>
+              </div>
+              <div class="block-filter">
+                <label>Sizes: height and width</label>
+                <!-- dataForm.manufacture - название входной коллекции, dataForm.manufacturerSelected - выбранный option, т.е. чтобы получить результурующее value-->
+                <!--данного select нужно обратиться {{dataForm.manufacturerSelected[0].value}}-->
+                <custom-select input-model="vmFilter.dataForm.height_and_width" output-model="vmFilter.dataForm.height_and_widthSelected">
+                  <options value="1" selected>10 x 20</options>
+                  <options value="2">20 x 40</options>
+                  <options value="3">30 x 40</options>
+                  <options value="4">35 x 50</options>
+                  <options value="5">50 x 100</options>
+                  <options value="6">50 x 150</options>
+                  <options value="7">100 x 250</options>
+                  <options value="8">300 x 500</options>
+                </custom-select>
+              </div>
+              <div class="block-filter">
+                <label>Colour</label>
+                <div class="block-colors">
+                  <!-- Если цвет белый то даем color.white-->
+                  <color checked model="dataForm.color.customsforall_value_name1" value="#fff" class="white"></color>
+                  <color model="vmFilter.dataForm.color.customsforall_value_name2" value="#000"></color>
+                  <color model="vmFilter.dataForm.color.customsforall_value_name3" value="#f1e403"></color>
+                  <color model="vmFilter.dataForm.color.customsforall_value_name4" value="#c26060"></color>
+                  <color model="vmFilter.dataForm.color.customsforall_value_name5" value="#406910"></color>
+                  <color model="vmFilter.dataForm.color.customsforall_value_name6" value="#27adb5"></color>
+                  <color model="vmFilter.dataForm.color.customsforall_value_name7" value="#818181"></color>
+                </div>
+              </div>
+              <div class="block-filter">
+                <label>Price ranges</label>
+                <!-- dataForm.manufacture - название входной коллекции, dataForm.manufacturerSelected - выбранный option, т.е. чтобы получить результурующее value-->
+                <!--данного select нужно обратиться {{dataForm.manufacturerSelected[0].value}}-->
+                <custom-select input-model="vmFilter.dataForm.price_ranges" output-model="dataForm.price_rangesSelected">
+                  <options value="1" selected>Under $10</options>
+                  <options value="2">$0-$5</options>
+                  <options value="3">$6-$10</options>
+                  <options value="4">$11-$15</options>
+                  <options value="5">$16-$20</options>
+                  <options value="6">$21-$50</options>
+                  <options value="7">Upper $50</options>
+                </custom-select>
+                <div class="wrapper-prices">
+                  <div>
+                    <label for="price_min">$</label>
+                    <input id="price_min" placeholder="min" type="text" ng-model="vmFilter.dataForm.price_min" name="price_min" required>
+                  </div>
+                  <div>
+                    <label for="price_min">$</label>
+                    <input id="price_max" placeholder="max" type="text" ng-model="vmFilter.dataForm.price_max" name="price_max" required>
+                  </div>
+                  <button ng-click="vmFilter.send(vmFilter.dataForm,formValidate,vmFilter.action,&quot;filter&quot;)" class="send"><span>Go</span></button>
+                  <!--pre {{vmFilter.dataForm|json}}-->
+                </div>
+              </div>
+              <div class="block-filter">
+                <label>Country of origin</label>
+                <!-- dataForm.manufacture - название входной коллекции, dataForm.manufacturerSelected - выбранный option, т.е. чтобы получить результурующее value-->
+                <!--данного select нужно обратиться {{dataForm.manufacturerSelected[0].value}}-->
+                <custom-select input-model="dataForm.countries" output-model="dataForm.countriesSelected">
+                  <options value="1" selected>Russia</options>
+                  <options value="2">England</options>
+                  <options value="3">USA</options>
+                  <options value="5">Germany</options>
+                </custom-select>
+              </div>
+            </form>
+          </div>
           <div class="wrapper-list-products">
             <div class="container">
               <ul class="list-products">
                 <li><span></span><a href="./product-details.html" class="wrapper-img"><img src="./images/popular-products/1.jpg"></a>
-                  <div class="wrapper-adv"><a class="add-to-cart"></a><a href="./product-details.html" class="more">learn more...</a></div>
+                  <div class="wrapper-adv"><a href="./cart.html" class="add-to-cart"></a><a href="./product-details.html" class="more">learn more...</a></div>
                   <h2><a href="./product-details.html">Escale</a></h2>
                   <p><a href="./product-details.html">Fluid Pendant Light dkfg dfgdfgfdg</a></p>
                   <ul class="price-block">
@@ -210,7 +245,7 @@
                   </ul>
                 </li>
                 <li><span></span><a href="./product-details.html" class="wrapper-img"><img src="./images/popular-products/1.jpg"></a>
-                  <div class="wrapper-adv"><a class="add-to-cart"></a><a href="./product-details.html" class="more">learn more...</a></div>
+                  <div class="wrapper-adv"><a href="./cart.html" class="add-to-cart"></a><a href="./product-details.html" class="more">learn more...</a></div>
                   <h2><a href="./product-details.html">Escale</a></h2>
                   <p><a href="./product-details.html">Fluid Pendant Light</a></p>
                   <ul class="price-block">
@@ -219,7 +254,7 @@
                   </ul>
                 </li>
                 <li><span></span><a href="./product-details.html" class="wrapper-img"><img src="./images/popular-products/1.jpg"></a>
-                  <div class="wrapper-adv"><a class="add-to-cart"></a><a href="./product-details.html" class="more">learn more...</a></div>
+                  <div class="wrapper-adv"><a href="./cart.html" class="add-to-cart"></a><a href="./product-details.html" class="more">learn more...</a></div>
                   <h2><a href="./product-details.html">Escale</a></h2>
                   <p><a href="./product-details.html">Fluid Pendant Light</a></p>
                   <ul class="price-block">
@@ -228,7 +263,7 @@
                   </ul>
                 </li>
                 <li><span></span><a href="./product-details.html" class="wrapper-img"><img src="./images/popular-products/1.jpg"></a>
-                  <div class="wrapper-adv"><a class="add-to-cart"></a><a href="./product-details.html" class="more">learn more...</a></div>
+                  <div class="wrapper-adv"><a href="./cart.html" class="add-to-cart"></a><a href="./product-details.html" class="more">learn more...</a></div>
                   <h2><a href="./product-details.html">Escale</a></h2>
                   <p><a href="./product-details.html">Fluid Pendant Light</a></p>
                   <ul class="price-block">
@@ -237,7 +272,7 @@
                   </ul>
                 </li>
                 <li><span></span><a href="./product-details.html" class="wrapper-img"><img src="./images/popular-products/1.jpg"></a>
-                  <div class="wrapper-adv"><a class="add-to-cart"></a><a href="./product-details.html" class="more">learn more...</a></div>
+                  <div class="wrapper-adv"><a href="./cart.html" class="add-to-cart"></a><a href="./product-details.html" class="more">learn more...</a></div>
                   <h2><a href="./product-details.html">Escale</a></h2>
                   <p><a href="./product-details.html">Fluid Pendant Light</a></p>
                   <ul class="price-block">
@@ -246,7 +281,7 @@
                   </ul>
                 </li>
                 <li><span></span><a href="./product-details.html" class="wrapper-img"><img src="./images/popular-products/1.jpg"></a>
-                  <div class="wrapper-adv"><a class="add-to-cart"></a><a href="./product-details.html" class="more">learn more...</a></div>
+                  <div class="wrapper-adv"><a href="./cart.html" class="add-to-cart"></a><a href="./product-details.html" class="more">learn more...</a></div>
                   <h2><a href="./product-details.html">Escale</a></h2>
                   <p><a href="./product-details.html">Fluid Pendant Light</a></p>
                   <ul class="price-block">
@@ -255,7 +290,7 @@
                   </ul>
                 </li>
                 <li><span></span><a href="./product-details.html" class="wrapper-img"><img src="./images/popular-products/1.jpg"></a>
-                  <div class="wrapper-adv"><a class="add-to-cart"></a><a href="./product-details.html" class="more">learn more...</a></div>
+                  <div class="wrapper-adv"><a href="./cart.html" class="add-to-cart"></a><a href="./product-details.html" class="more">learn more...</a></div>
                   <h2><a href="./product-details.html">Escale</a></h2>
                   <p><a href="./product-details.html">Fluid Pendant Light</a></p>
                   <ul class="price-block">
@@ -264,7 +299,7 @@
                   </ul>
                 </li>
                 <li><span></span><a href="./product-details.html" class="wrapper-img"><img src="./images/popular-products/1.jpg"></a>
-                  <div class="wrapper-adv"><a class="add-to-cart"></a><a href="./product-details.html" class="more">learn more...</a></div>
+                  <div class="wrapper-adv"><a href="./cart.html" class="add-to-cart"></a><a href="./product-details.html" class="more">learn more...</a></div>
                   <h2><a href="./product-details.html">Escale</a></h2>
                   <p><a href="./product-details.html">Fluid Pendant Light</a></p>
                   <ul class="price-block">

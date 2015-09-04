@@ -1,0 +1,142 @@
+//- index.jade
+extends ../layout.jade
+block breadcrumbs
+    +breadcrumbs(['', 'cart'])
+block content
+    section.cart
+        .container(ng-controller="CartCtrl as cart" ng-init="cart.setStep(1)")
+            h1.cart__title(ng-if="cart.step==0") Your Shopping Cart
+            h1.cart__title(ng-if="cart.step==1") Enter Your Shipping Address
+            .wrapper-block(ng-cloak)
+                .order-details(ng-class="{'step-2':cart.step==1}")
+                    h2.order-details__title Order Details {{cart.step}}
+                    ul.order-details__inner-block
+                        li.order-details__item
+                            .list-item
+                                h3.list-item__title Subtotal
+                                .list-item__price-block-container
+                                    .list-item__price-block
+                                        div
+                                            span.list-item__currency.list-item__text-style USD
+                                            span.list-item__currency-count.list-item__text-style.list-item__text-style-increase ${{cart.subSum(cart.CartService.products,'price_usd')|round2|splitSpace}}
+                                        div.list-item__currency-discount.list-item__text-style
+                                            del ${{cart.subSum(cart.CartService.products,'price_usd_discont')|round2|splitSpace}}
+                                    .list-item__price-block
+                                        div
+                                            span.list-item__currency CAD
+                                            span.list-item__currency-count.list-item__text-style-increase ${{cart.subSum(cart.CartService.products,'price_cad')|round2|splitSpace}}
+                                        div.list-item__currency-discount
+                                            del ${{cart.subSum(cart.CartService.products,'price_cad_discont')|round2|splitSpace}}
+                        li.order-details__item
+                            .list-item
+                                h3.list-item__title Shipping
+                                .list-item__price-block-container
+                                    .list-item__price-block -
+                        li.order-details__item
+                            .list-item
+                                h3.list-item__title Tax
+                                .list-item__price-block-container
+                                    .list-item__price-block -
+                        li.order-details__item
+                            .discont-block
+                                h1.discont-block__title Discount Codes
+                                .discont-block__form
+                                    input.discont-block__input(type="text" ng-model="cart.discount_code")
+                                    //button.discont-block__button(ng-click="cart.getDiscount('./controller.php','get')") Apply Coupon
+                                    button.discont-block__button(ng-click="cart.getDiscount(cart.discount_code,'./json/discount.json','get')") Apply Coupon
+                        li.order-details__item(ng-cloak)
+                            .list-item
+                                h3.list-item__title Total
+                                .list-item__price-block.list-item__price-block--half
+                                    div
+                                        span.list-item__currency.list-item__currency--offset-left USD
+                                        span.list-item__currency-count.list-item__currency-count--size-up.list-item__currency-count--grey.list-item__currency-count--offset ${{cart.totalSum(cart.CartService.products,'price_usd',cart.discount_rate||0)|round2|splitSpace}}
+                                    div.list-item__currency-discount.list-item__currency-discount--size-up.list-item__currency--offset-left
+                                        del ${{cart.totalSum(cart.CartService.products,'price_usd_discont',cart.discount_rate||0)|round2|splitSpace}}
+                                .list-item__price-block.list-item__price-block--half
+                                    div
+                                        span.list-item__currency.list-item__currency--offset-left CAD
+                                        span.list-item__currency-count.list-item__currency-count--size-up.list-item__currency-count--white.list-item__currency-count--offset ${{cart.totalSum(cart.CartService.products,'price_cad',cart.discount_rate||0)|round2|splitSpace}}
+                                    div.list-item__currency-discount.list-item__currency-discount--size-up.list-item__currency--offset-left
+                                        del ${{cart.totalSum(cart.CartService.products,'price_cad_discont',cart.discount_rate||0)|round2|splitSpace}}
+                    a.order-details__link.order-details__inner-block.order-details__link--next(ng-if="cart.step==0") Proceed to Checkout
+                    a.order-details__link.order-details__inner-block.order-details__link--prev(ng-if="cart.step==0") Continue Shopping
+                table.product-list(ng-if="cart.step==0")
+                    tr
+                        th.product-list__title-list Your Items
+                        th
+                        th.product-list__title-list Price
+                        th.product-list__title-list Qty
+                        th.product-list__title-list Remove
+                    tr.product-list__item(ng-repeat="product in cart.CartService.products")
+                        td
+                            a.product-list__item__wrapper-img(ng-href="{{product.link}}")
+                                img(ng-src="{{product.src}}")
+                        td
+                            a.product-list__item__link(href="{{product.link}}" ng-bind="product.name")
+                        td
+                            .product-list__item__price
+                                div
+                                    span USD
+                                    span ${{product.price_usd}}
+                                div
+                                    del ${{product.price_usd_discont}}
+                            .product-list__item__price
+                                div
+                                    span CAD
+                                    span ${{product.price_cad}}
+                                div
+                                    del ${{product.price_cad_discont}}
+                        td
+                            count-products(quantity="product.quantity" is-show-free-sbhipping="false")
+                        td
+                            a.fa.fa-trash(ng-click="cart.remove(product)")
+                .cart-execution
+                    form.form-validate(name="formValidate" ng-controller="App.form.FormCtrl as vm" ng-init="vm.action='./controller.php'" novalidate)
+                        div.wrapper-add-line
+                            input#name_cart(type="text" name="name_cart" ng-model='vm.dataForm.data.name_cart' autocomplete="off" required)
+                            label(for="name_cart")
+                                span Full Name:
+                            span.add-line(ng-click="vm.addAddress('address_cart',vm.address_count)") + Add a New Address
+                        div
+                            input#address_cart1(type="email" name="address_cart1" ng-model='vm.dataForm.data.address_cart1' autocomplete="off" required)
+                            label(for="address_cart1")
+                                span Address Line 1:
+                        div
+                            input#city(type="text" name="city" ng-model='vm.dataForm.data.city' autocomplete="off" required)
+                            label(for="city")
+                                span City:
+                        div
+                            input#scp(type="text" name="scp" ng-model='vm.dataForm.data.scp' autocomplete="off" required)
+                            label(for="scp")
+                                span State/County/Province:
+                        div
+                            input#postal_code(type="text" name="postal_code" ng-model='vm.dataForm.data.postal_code' autocomplete="off" required)
+                            label(for="postal_code")
+                                span Postal Code
+                        div
+                            input#country(type="text" name="country" ng-model='vm.dataForm.data.country' autocomplete="off" required)
+                            label(for="country")
+                                span Country
+                        div
+                            input#phone_number(type="text" name="phone_number" ng-model='vm.dataForm.data.phone_number' autocomplete="off" required)
+                            label(for="phone_number")
+                                span Phone Number
+                        div
+                            input#extension(type="text" name="extension" ng-model='vm.dataForm.data.extension' autocomplete="off" required)
+                            label(for="extension")
+                                span Extension
+                        div.wrapper-checkbox
+                            input#access(type="checkbox")
+                            label(for="access") Set as default shipping address
+                        .wrapper-send.continue
+                            button.send(ng-click='vm.send(vm.dataForm,formValidate,vm.action)')
+                                span Continue
+                        div
+                            span.back Back
+                        input(type="hidden" name="task" ng-init='vm.dataForm.hidden.task="contacts"' ng-model='vm.dataForm.hidden.task')
+                    h2.cart-execution-title Billing & Payment
+                    ul.list-payments
+                        li
+                            .wrapper-img
+                                img(src="./images/paypal.png" width="82" height="22")

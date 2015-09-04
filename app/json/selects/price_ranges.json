@@ -1,0 +1,30 @@
+[
+  {
+    "value": 1,
+    "maker": "Under $10"
+  },
+  {
+    "value": 2,
+    "maker": "$0-$5"
+  },
+  {
+    "value": 3,
+    "maker": "$6-$10"
+  },
+  {
+    "value": 4,
+    "maker": "$11-$15"
+  },
+  {
+    "value": 5,
+    "maker": "$16-$20"
+  },
+  {
+    "value": 6,
+    "maker": "$21-$50"
+  },
+  {
+    "value": 7,
+    "maker": "Upper $50"
+  }
+]

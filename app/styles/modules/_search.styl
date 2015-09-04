@@ -24,7 +24,7 @@
     .close, .send-button
       opacity: 1
     .close
-      right: 0
+      right: 0 !important
     .send-button
       right: 25px
   .send-button
@@ -37,11 +37,13 @@
     opacity: 0
     tn(.5s)
   .close
+    cursor pointer
     font-size: 20px
     position: absolute
     z-index: 0
-    top: 12px
-    right: -45px
+    top: 22px !important
+    left auto !important
+    right: -45px !important
     opacity: 0
     tn(.5s)
   .send

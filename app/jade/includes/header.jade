@@ -12,47 +12,18 @@ header.header
                 //    li
                 //        form(method="post" action="#")
                 //            button Sign out
-            .mini-cart
-                a(href="")
-                    span 0
-                //если элементов больше 5, то добавляем класс div.inner-mini-cart
+            .mini-cart(ng-controller="MiniCartCtrl as mini_cart" ng-init="mini_cart.setProducts(#{JSON.stringify(cart)})")
+                a(href="./cart.html")
+                    span(ng-bind="mini_cart.getCount()") 0
                 div.inner-mini-cart
-                    ul
-                        li
-                            a.wrapper-img(href="./product-details.html")
-                                img(src="./images/mini-cart/1.jpg")
+                    ul(ng-cloak)
+                        li(ng-repeat="product in mini_cart.CartService.products")
+                            a.wrapper-img(ng-href="{{product.link}}")
+                                img(ng-src="{{product.src}}")
                             .product-info
                                 h2
-                                    a(href="./product-details.html") MASIERO Drylight S12 Outdoor Chandelier
-                                span Quantity: 1
-                        li
-                            a.wrapper-img(href="./product-details.html")
-                                img(src="./images/mini-cart/2.jpg")
-                            .product-info
-                                h2
-                                    a(href="./product-details.html") MASIERO Drylight S12 Outdoor Chandelier
-                                span Quantity: 1
-                        li
-                            a.wrapper-img(href="./product-details.html")
-                                img(src="./images/mini-cart/2.jpg")
-                            .product-info
-                                h2
-                                    a(href="./product-details.html") MASIERO Drylight S12 Outdoor Chandelier
-                                span Quantity: 1
-                        li
-                            a.wrapper-img(href="./product-details.html")
-                                img(src="./images/mini-cart/1.jpg")
-                            .product-info
-                                h2
-                                    a(href="./product-details.html") MASIERO Drylight S12 Outdoor Chandelier
-                                span Quantity: 1
-                        li
-                            a.wrapper-img(href="./product-details.html")
-                                img(src="./images/mini-cart/2.jpg")
-                            .product-info
-                                h2
-                                    a(href="./product-details.html") MASIERO Drylight S12 Outdoor Chandelier
-                                span Quantity: 1
+                                    a(href="{{product.link}}" ng-bind="product.name")
+                                span Quantity: {{product.quantity}}
                     a.to-cart(href="./cart.html") View cart
 
     nav.nav
@@ -121,8 +92,8 @@ header.header
             .search(ng-controller="SearchCtrl as vSearch" ng-class="{'active':vSearch.isShowSearch==true}")
                 form.form-validate(name="formValidate" novalidate action="./")
                     .wrapper-search-block
-                        input(type="text" name="search" placeholder="Search" ng-model='vSearch.dataForm.search' autocomplete="off" ng-focus="vSearch.isShowSearch=true" ng-blur="vSearch.blurSearch(dataForm.search)")
+                        input(type="text" name="search" placeholder="Search" ng-model='vSearch.dataForm.search' autocomplete="off" ng-focus="vSearch.isShowSearch=true" ng-blur="vSearch.blurSearch(vSearch.dataForm.search)")
                     button.send
                         span.fa.fa-search
                     button.send-button find
-                    span(ng-click="resetSearch()").fa.fa-close.close
+                    span(ng-click="vSearch.resetSearch()").fa.fa-close.close

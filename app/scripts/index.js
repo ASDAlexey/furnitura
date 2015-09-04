@@ -1,45 +1,39 @@
 import './plugins/vinilla';
 import './vendors/cssua';
-import lory from './plugins/lory';
-document.addEventListener('DOMContentLoaded', function () {
-    var percentage = document.querySelectorAll('.js_percentage');
-    percentage.forEach((element, index)=> {
-        var lorySlider = lory(element, {
-            infinite: 1
-        });
-        var mainInterval;
-        var autoScroll = ()=> {
-            mainInterval = setInterval((function () {
-                lorySlider.next();
-            }), 5000);
-        };
-        autoScroll();
-        element.querySelectorAll('.arrows-bg-slider').forEach((el, i)=> {
-            el.addEventListener('click', ()=> {
-                clearInterval(mainInterval);
-                autoScroll();
-            });
-        });
-    });
-
-
-});
-//import './plugins/bg-slider';
-
+// Library Scripts
 import 'angular';
+import 'angular-resource';
+import 'angular-animate';
+import 'lodash';
+import 'gsap';
+import 'gsap/src/uncompressed/utils/Draggable.js';
+import 'gsap/src/uncompressed/plugins/ScrollToPlugin.js';
+//plugins
+import './plugins/ThrowPropsPlugin.min.js';
+import './plugins/DrawSVGPlugin.min-modif.js'
+import 'angular-google-maps';
+import 'angular-validation-match';
+import './plugins/isteven-multi-select'
+// Application Script
 import './app';
-import './search/search';
-//import 'angular-resource';
-//import 'angular-sanitize';
-//import 'gsap';
-//import 'gsap/src/uncompressed/utils/Draggable.js';
-//import 'gsap/src/uncompressed/plugins/ScrollToPlugin.js';
-//import './plugins/ThrowPropsPlugin.min.js';
-//import './plugins/DrawSVGPlugin.min-modif.js'
-//import 'lodash';
-//import './plugins/angular-ui-utils/ui-utils.js';
-//import 'angular-animate';
-//import 'angular-google-maps';
-//import './plugins/isteven-multi-select'
-//import 'material-date-picker'
-//import './angular/app.js';
+// Domain Classes
+
+//module common
+import './common/common.filters';
+import './common/common.services';
+import './common/dataAccessService';
+import './common/common.directives';
+// modules
+import './search/controllers';
+import './product/product';
+import './product/services';
+import './product/controllers';
+import './product/directives';
+import './form/controllers';
+import './map/controllers';
+import './tabs/controllers';
+import './animations/controllers';
+import './animations/directives';
+import './category/controllers';
+import './category/directives';
+

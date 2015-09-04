@@ -1,4 +1,15 @@
+.auth-page
+  padding: 115px 0
+
 .form-validate
+  &.form-filter
+    > div
+      input:not([type="checkbox"]), textarea
+        color: #000
+        padding-left: 5px !important
+        text-align: center
+        padding-right: 5px !important
+        width: 62px
   > div
     margin-top: 20px
     position: relative
@@ -13,6 +24,8 @@
     &:nth-child(3)
       input:not([type="checkbox"])
         padding-left: 73px
+      .re_pwd
+        padding-left: 112px !important
     &:nth-child(4)
       textarea
         padding-left: 90px
@@ -85,6 +98,13 @@
         tn(.5s)
         &:hover
           background-color: #ffe26b
+      &.continue
+        left: 517px
+        .send
+          width: 280px
+          span
+            &:after
+              content: "\f061"
         span
           dibt()
           margin-left: 36px
@@ -108,7 +128,7 @@
     width: 561px
     margin: 0 auto
     background-color: #000
-    padding: 90px 105px
+    padding: 66px 105px 90px
     label
       &:before, &:after
         width: 351px !important
@@ -133,7 +153,7 @@
                   &:after
                     opacity: 1
           label
-            cursor:pointer
+            cursor: pointer
             dibt()
             margin: 11px 0 0 48px
             color: #fff
@@ -191,3 +211,70 @@
         tt(0, -50%)
         faw(14px)
         color: #808080
+
+.cart-execution
+  float: left
+  width: 444px
+  .wrapper-add-line
+    position: relative
+    z-index: 0
+  .add-line
+    cursor pointer
+    white-space nowrap
+    position: absolute
+    z-index: 1
+    top: 13px
+    left: calc(100% + 12px)
+    ll(16px)
+    color: #808080
+    tn(.5s)
+    &:hover
+      color: #facb0c
+  .wrapper-checkbox
+    input[type="checkbox"]
+      display: none
+      &:checked+label
+        &:after
+          color: #facb0c
+    label
+      ll(16px)
+      color: #fff
+      position: relative
+      z-index: 0
+      margin-left: 38px
+      &:after
+        transition:color .5s ease-out
+        text-align: center
+        padding-top: 4px
+        faw(16px)
+        color: #000
+        content: "\f00c"
+        position: absolute
+        z-index: 1
+        top: 50%
+        left: -38px
+        margin-top: -14px
+        border: 1px solid #808080
+        width: 24px
+        height: 20px
+
+.back
+  left: 517px
+  cursor pointer
+  float: right
+  position: relative
+  z-index: 0
+  color: #808080
+  ll(16px)
+  display: block
+  tn(.5s)
+  &:hover
+    color: #facb0c
+  &:after
+    content: "\f177"
+    position: absolute
+    z-index: 1
+    top: 50%
+    left: -20px
+    tt(0, -50%)
+    faw(12px)
