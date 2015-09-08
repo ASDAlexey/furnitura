@@ -89,7 +89,7 @@
     &.wrapper-send
       text-align: right
       .send
-        padding-top: 4px
+        padding-top: 2px
         dibt()
         background-color: #facb0c
         width: 207px
@@ -233,17 +233,18 @@
   .wrapper-checkbox
     input[type="checkbox"]
       display: none
-      &:checked+label
+      &:checked + label
         &:after
           color: #facb0c
     label
+      cursor pointer
       ll(16px)
       color: #fff
       position: relative
       z-index: 0
       margin-left: 38px
       &:after
-        transition:color .5s ease-out
+        transition: color .5s ease-out
         text-align: center
         padding-top: 4px
         faw(16px)
@@ -278,3 +279,27 @@
     left: -20px
     tt(0, -50%)
     faw(12px)
+
+.name_cart
+  padding-left: 89px !important
+
+.address-input
+  padding-left: 122px !important
+
+.city
+  padding-left: 55px !important
+
+.scp
+  padding-left: 179px !important
+
+.postal_code
+  padding-left: 110px !important
+
+.country
+  padding-left: 85px !important
+
+.phone_number
+  padding-left: 129px !important
+
+.extension
+  padding-left: 94px !important

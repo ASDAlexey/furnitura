@@ -18,34 +18,34 @@ block content
                         a(ng-class="{'active':tab.currentTab==4}" ng-click="tab.switchTab(4)") Password
                     li
                         a(ng-class="{'active':tab.currentTab==5}" ng-click="tab.switchTab(5)") Advanced Settings
-            ul.list-tabs
-                li.animated.lightSpeedIn(ng-if="tab.currentTab==0")
+            ul.list-tabs(ng-cloak)
+                li(ng-if="tab.currentTab==0")
                     .container
-                        h2 Your Purchases
+                        h2 Your Purchases1
                         p You haven’t placed any orders yet,
                             a(href="./category.html") check out over 3 million products
                             | curated by home design experts.
-                li.animated.lightSpeedIn(ng-if="tab.currentTab==1")
+                li(ng-if="tab.currentTab==1")
                     .container
-                        h2 Your Purchases
+                        h2 Your Purchases2
                         p You haven’t placed any orders yet,
                             a(href="./category.html") check out over 3 million products
                             | curated by home design experts.
-                li.animated.lightSpeedIn(ng-if="tab.currentTab==3")
+                li(ng-if="tab.currentTab==3")
                     .container
-                        h2 Your Purchases
+                        h2 Your Purchases3
                         p You haven’t placed any orders yet,
                             a(href="./category.html") check out over 3 million products
                             | curated by home design experts.
-                li.animated.lightSpeedIn(ng-if="tab.currentTab==4")
+                li(ng-if="tab.currentTab==4")
                     .container
-                        h2 Your Purchases
+                        h2 Your Purchases4
                         p You haven’t placed any orders yet,
                             a(href="./category.html") check out over 3 million products
                             | curated by home design experts.
-                li.animated.lightSpeedIn(ng-if="tab.currentTab==5")
+                li(ng-if="tab.currentTab==5")
                     .container
-                        h2 Your Purchases
+                        h2 Your Purchases5
                         p You haven’t placed any orders yet,
                             a(href="./category.html") check out over 3 million products
                             | curated by home design experts.

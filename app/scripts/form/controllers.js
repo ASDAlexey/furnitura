@@ -37,25 +37,30 @@ var FilterCtrl = (function () {
         }
     };
     FilterCtrl.prototype.send = function (dataForm, formValidate, action, form) {
-        console.log('snedForm');
         if (formValidate.$valid) {
             angular.element(document.getElementById(form))[0].submit();
         }
         else {
-            console.log('valid');
             this.form_set_dirty(formValidate);
         }
     };
     return FilterCtrl;
 })();
-exports.FilterCtrl = FilterCtrl;
 var FormCtrl = (function () {
     function FormCtrl($rootScope, $timeout, $http) {
         this.$rootScope = $rootScope;
         this.$timeout = $timeout;
         this.httpService = $http;
+        this.address_count = 1;
         this.dataForm = {
-            data: {},
+            data: {
+                address_cart: [
+                    {
+                        "name": "address_cart1",
+                        "value": ""
+                    }
+                ]
+            },
             hidden: {}
         };
         $rootScope.hideThank = function () {
@@ -70,7 +75,7 @@ var FormCtrl = (function () {
     FormCtrl.prototype.form_set_dirty = function (form) {
         if (form.$setDirty) {
             form.$setDirty();
-            return angular.forEach(form, function (input, key) {
+            angular.forEach(form, function (input, key) {
                 if (typeof input === 'object' && input.$name !== undefined) {
                     return form[input.$name].$setViewValue((form[input.$name].$viewValue !== undefined ? form[input.$name].$viewValue : ""));
                 }
@@ -79,7 +84,6 @@ var FormCtrl = (function () {
     };
     FormCtrl.prototype.thanksShowTime = function () {
         var _this = this;
-        console.log('start');
         this.$rootScope.formIsValide = true;
         this.$timeout(function () {
             _this.$rootScope.hideThank();
@@ -87,6 +91,17 @@ var FormCtrl = (function () {
     };
     FormCtrl.prototype.clear = function (formValidate) {
         this.dataForm.data = {};
+        this.dataForm = {
+            data: {
+                address_cart: [
+                    {
+                        "name": "address_cart1",
+                        "value": ""
+                    }
+                ]
+            },
+            hidden: {}
+        };
         this.form_set_pristine(formValidate);
     };
     FormCtrl.prototype.sendData = function (sendOptions) {
@@ -108,12 +123,24 @@ var FormCtrl = (function () {
                 method: "POST",
                 data: angular.copy(dataForm)
             };
-            this.sendData(sendOptions);
-            this.clear(formValidate);
+            if (angular.element(document.getElementById('form-cart')).length) {
+                angular.element(document.getElementById('form-cart'))[0].submit();
+            }
+            else {
+                this.sendData(sendOptions);
+                this.clear(formValidate);
+            }
         }
         else {
             this.form_set_dirty(formValidate);
         }
+    };
+    FormCtrl.prototype.addAddress = function (address_cart, address_count) {
+        this.address_count++;
+        var obj = {};
+        obj['name'] = address_cart + (address_count + 1);
+        obj['value'] = "";
+        this.dataForm.data.address_cart.push(obj);
     };
     FormCtrl.$inject = ["$rootScope", "$timeout", "$http"];
     return FormCtrl;

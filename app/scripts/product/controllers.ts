@@ -45,7 +45,6 @@ class ProductDetail implements IproductDetailModel {
         };
 
         $scope.$watch(angular.bind(this, function (name) {
-            console.log(name);
             return this.dataForm.quantity;
         }), (newVal)=> {
             if (!newVal) {
@@ -118,9 +117,13 @@ class CartCtrl implements ICartModel {
     }
 
     subSum(products, currency) {
-        return _.sum(products, function (object) {
-            return object[currency] * object.quantity;
-        });
+        if(products.length) {
+            return _.sum(products, function (object) {
+                return object[currency] * object.quantity;
+            });
+        }else{
+            return 0
+        }
     }
 
     totalSum(products, currency:string, discount_rate:number) {
