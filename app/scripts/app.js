@@ -8,4 +8,5 @@ angular.module("App", [
     "App.search",
     "App.product"
 ]);
+console.log('new log');
 //# sourceMappingURL=app.js.map
