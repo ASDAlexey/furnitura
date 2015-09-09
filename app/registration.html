@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<!--html(style="opacity:0")-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=1000">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="description" content="Description">
+    <meta name="keywords" content="Keywords">
+    <title>Touch of Europe</title>
+    <link rel="icon" type="image/png" href="./images/favicon.png">
+    <style>
+      [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+          display: none !important;
+      }
+    </style>
+    <script async>var loadCSSFiles=function(){var e,t,a=["./styles/application.css"],n=document.getElementsByTagName("head")[0];for(t=0;t<a.length;t++)e=document.createElement("link"),e.rel="stylesheet",e.href=a[t],n.appendChild(e)},raf=requestAnimationFrame||mozRequestAnimationFrame||webkitRequestAnimationFrame||msRequestAnimationFrame;raf?(raf(loadCSSFiles)):window.addEventListener("load",loadCSSFiles);</script>
+  </head>
+  <body ng-app="App" pointer-events-scroll>
+    <div class="wrapper dNtoLoad">
+      <main class="main">
+        <header class="header">
+          <div class="header-top">
+            <div class="container"><a href="./" class="logo">Touch of Europe</a>
+              <div class="authentificition"><a href="sign_in.html" class="sign-in">Sign In</a>
+                <!-- Последующие блоки a.private-office и ul.sub-links - выводить вместе-->
+                <!--a.private-office(href="./private-office.html") Ivan-->
+                <!--ul.sub-links-->
+                <!--    li-->
+                <!--        a(href="./private-office.html") Edit profile-->
+                <!--    li-->
+                <!--        form(method="post" action="#")-->
+                <!--            button Sign out-->
+              </div>
+              <div ng-controller="MiniCartCtrl as mini_cart" ng-init="mini_cart.setProducts([{&quot;link&quot;:&quot;./product-details.html&quot;,&quot;src&quot;:&quot;./images/cart/1.jpg&quot;,&quot;name&quot;:&quot;MASIERO Drylight S11 Outdoor Chandelier&quot;,&quot;price_usd&quot;:800,&quot;price_usd_discont&quot;:273,&quot;price_cad&quot;:700,&quot;price_cad_discont&quot;:279,&quot;quantity&quot;:1},{&quot;link&quot;:&quot;./product-details.html&quot;,&quot;src&quot;:&quot;./images/cart/2.jpg&quot;,&quot;name&quot;:&quot;MASIERO Drylight S12 Outdoor Chandelier&quot;,&quot;price_usd&quot;:1000,&quot;price_usd_discont&quot;:273,&quot;price_cad&quot;:1100,&quot;price_cad_discont&quot;:279,&quot;quantity&quot;:1},{&quot;link&quot;:&quot;./product-details.html&quot;,&quot;src&quot;:&quot;./images/cart/1.jpg&quot;,&quot;name&quot;:&quot;MASIERO Drylight S13 Outdoor Chandelier&quot;,&quot;price_usd&quot;:400,&quot;price_usd_discont&quot;:273,&quot;price_cad&quot;:410.67,&quot;price_cad_discont&quot;:279,&quot;quantity&quot;:1}])" class="mini-cart"><a href="./cart.html"><span ng-bind="mini_cart.getCount()">0</span></a>
+                <div class="inner-mini-cart">
+                  <ul ng-cloak>
+                    <li ng-repeat="product in mini_cart.CartService.products"><a ng-href="{{product.link}}" class="wrapper-img"><img ng-src="{{product.src}}"></a>
+                      <div class="product-info">
+                        <h2><a href="{{product.link}}" ng-bind="product.name"></a></h2><span>Quantity: {{product.quantity}}</span>
+                      </div>
+                    </li>
+                  </ul><a href="./cart.html" class="to-cart">View cart</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <nav class="nav">
+            <div class="container">
+              <ul>
+                <li>
+                  <div class="sub-menu">
+                    <ul>
+                      <li><a href="./category.html" class="active">Modern</a></li>
+                      <li><a href="./category.html">Baskets</a></li>
+                      <li><a href="./category.html">Antique</a></li>
+                      <li><a href="./category.html">Classic</a></li>
+                      <li><a href="./category.html">Maria Theresa</a></li>
+                    </ul>
+                  </div><a href="./category.html" class="active">Lighting</a>
+                </li>
+                <li>
+                  <div class="sub-menu">
+                    <ul>
+                      <li><a href="./category.html">Modern</a></li>
+                      <li><a href="./category.html">Baskets</a></li>
+                      <li><a href="./category.html">Antique</a></li>
+                      <li><a href="./category.html">Classic</a></li>
+                      <li><a href="./category.html">Maria Theresa</a></li>
+                    </ul>
+                  </div><a href="./category.html">Clocks</a>
+                </li>
+                <li>
+                  <div class="sub-menu">
+                    <ul>
+                      <li><a href="./category.html">Modern</a></li>
+                      <li><a href="./category.html">Baskets</a></li>
+                      <li><a href="./category.html">Antique</a></li>
+                      <li><a href="./category.html">Classic</a></li>
+                      <li><a href="./category.html">Maria Theresa</a></li>
+                    </ul>
+                  </div><a href="./category.html">Crystal Tableware</a>
+                </li>
+                <li>
+                  <div class="sub-menu">
+                    <ul>
+                      <li><a href="./category.html">Modern</a></li>
+                      <li><a href="./category.html">Baskets</a></li>
+                      <li><a href="./category.html">Antique</a></li>
+                      <li><a href="./category.html">Classic</a></li>
+                      <li><a href="./category.html">Maria Theresa</a></li>
+                    </ul>
+                  </div><a href="./category.html">Porcelain & China</a>
+                </li>
+                <li><a href="./about.html">About</a></li>
+                <li><a href="./contact.html">Contact Us</a></li>
+              </ul>
+              <div ng-controller="SearchCtrl as vSearch" ng-class="{'active':vSearch.isShowSearch==true}" class="search">
+                <form name="formValidate" novalidate action="./" class="form-validate">
+                  <div class="wrapper-search-block">
+                    <input type="text" name="search" placeholder="Search" ng-model="vSearch.dataForm.search" autocomplete="off" ng-focus="vSearch.isShowSearch=true" ng-blur="vSearch.blurSearch(vSearch.dataForm.search)">
+                  </div>
+                  <button class="send"><span class="fa fa-search"></span></button>
+                  <button class="send-button">find</button><span ng-click="vSearch.resetSearch()" class="fa fa-close close"></span>
+                </form>
+              </div>
+            </div>
+          </nav>
+        </header>
+        <section class="auth-page">
+          <div class="container">
+            <form id="auth-reg" name="formValidate" ng-controller="App.form.FormAuthCtrl as vm" ng-init="vm.action='./controller.php'" novalidate class="form-validate">
+              <div>
+                <input id="name_auth" type="email" name="name_auth" ng-model="vm.dataForm.data.name" autocomplete="off" required>
+                <label for="name_auth"><span>Username or Email:</span></label>
+              </div>
+              <div>
+                <input id="pwd" type="password" name="password_auth" ng-model="vm.dataForm.data.pwd" autocomplete="off" required>
+                <label for="pwd"><span>Password:</span></label>
+              </div>
+              <div>
+                <input id="re_pwd" type="password" name="re_password_auth" ng-model="vm.dataForm.data.re_pwd" match="vm.dataForm.data.pwd" autocomplete="off" required class="re_pwd">
+                <label for="re_pwd"><span>Re-password:</span></label>
+              </div>
+              <div class="wrapper-send"><span class="wrapper-check-sign">
+                  <input id="keep_sign" type="checkbox" name="remember" value="yes">
+                  <label for="keep_sign">Keep me signed in<span></span></label></span>
+                <button ng-click="vm.send(vm.dataForm,formValidate,vm.action,&quot;auth-reg&quot;)" class="send"><span>Sign in</span></button>
+              </div>
+              <input type="hidden" name="option" value="com_users">
+              <input type="hidden" name="task" value="user.login">
+              <input type="hidden" name="0e23c40c57a567381354bfedc95271f4" value="1">
+            </form>
+            <div class="link-to-auth"><a href="./sign_in.html">Go to sign in?</a></div>
+          </div>
+        </section>
+      </main>
+    </div>
+    <footer class="footer">
+      <section class="wrapper-links-block">
+        <div class="container">
+          <div class="block-links">
+            <h1>Company</h1>
+            <ul>
+              <li><a href="">About Houzz</a></li>
+              <li><a href="">In the News</a></li>
+              <li><a href="">Press Info</a></li>
+              <li><a href="">Careers</a></li>
+              <li><a href="">Contact Us</a></li>
+              <li><a href="">Terms of Use</a></li>
+              <li><a href="">Privacy Policy</a></li>
+            </ul>
+          </div>
+          <div class="block-links">
+            <h1>Explore houzz</h1>
+            <ul>
+              <li><a href="">Buttons & Badges</a></li>
+              <li><a href="">Mobile Apps</a></li>
+              <li><a href="">Advertise</a></li>
+              <li><a href="">For Professionals</a></li>
+              <li><a href="">Sell on Houzz</a></li>
+              <li><a href="">Write a Review</a></li>
+              <li><a href="">FAQs</a></li>
+            </ul>
+          </div>
+          <div class="block-links contacts-block">
+            <h1>Contact</h1>
+            <ul>
+              <li><a href="mailto:info@lightingdeluxe.com">info@lightingdeluxe.com</a></li>
+              <li><a href="tel:+1-800-667-452">Australia: 1-800-667-452</a></li>
+              <li><a href="tel:+1-888-642-8669">USA / Canada: 1-888-642-8669</a></li>
+              <li><a href="tel:+49-351-84710961">+49-351-84710961</a></li>
+            </ul>
+            <ul>
+              <li><span>Lichtkultur GmbH</span><span>Flösserstr. 19a</span><span>01139 Dresden</span></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+      <section class="footer-middle">
+        <div class="container">
+          <div class="middle-block payment">
+            <h1>Payment Methods</h1>
+            <ul>
+              <li><a href="" class="fa fa-cc-paypal"></a></li>
+            </ul>
+          </div>
+          <div class="middle-block connect">
+            <h1>Connect with us</h1>
+            <ul>
+              <li><a href="" class="fa fa-twitter"></a></li>
+              <li><a href="" class="fa fa-linkedin"></a></li>
+              <li><a href="" class="fa fa-vk"></a></li>
+              <li><a href="" class="fa fa-facebook-f"></a></li>
+              <li><a href="" class="fa fa-google-plus"></a></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+      <section class="footer-bottom">
+        <div class="container">
+          <div class="copyright"><span>©</span>2015 «Touch of Europe»</div><a href="http://tutmee.ru" class="firm-logo">
+            <div><span>Создание дизайна</span><span>и разработка сайтов</span><span>LTD Tutmee.ru</span></div>
+            <div><img src="./images/firm-logo.png" width="214" height="68"></div></a>
+        </div>
+      </section>
+    </footer>
+    <!--button.up(move-up)-->
+    <!--include ./includes/popups.jade-->
+    <!--include ./includes/thanks.jade-->
+    <!--include ./includes/preloader.jade-->
+  </body>
+</html>
+<script src="./scripts/vendors/preloadjs-0.6.1.min.js" defer></script>
+<script src="./scripts/vendors/snap.svg.js" defer></script>
+<script src="./scripts/bundle.js" defer></script>
+<!--script(src="http://localhost:8080/webpack-dev-server.js" defer)-->
+<!--script(src="http://localhost:8080/bundle.js" defer)-->

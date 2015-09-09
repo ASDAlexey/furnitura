@@ -31,6 +31,7 @@ class customSelect implements ng.IDirective {
         //angular will return newed up instance passing the timeout argument
         var directive:ng.IDirectiveFactory =
             ($timeout:ng.ITimeoutService) => new customSelect();
+        directive.$inject = ["$timeout"];
         //directive's injection list
         return directive;
     }

@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<!--html(style="opacity:0")-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=1000">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="description" content="Description">
+    <meta name="keywords" content="Keywords">
+    <title>Touch of Europe</title>
+    <link rel="icon" type="image/png" href="./images/favicon.png">
+    <style>
+      [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+          display: none !important;
+      }
+    </style>
+    <script async>var loadCSSFiles=function(){var e,t,a=["./styles/application.css"],n=document.getElementsByTagName("head")[0];for(t=0;t<a.length;t++)e=document.createElement("link"),e.rel="stylesheet",e.href=a[t],n.appendChild(e)},raf=requestAnimationFrame||mozRequestAnimationFrame||webkitRequestAnimationFrame||msRequestAnimationFrame;raf?(raf(loadCSSFiles)):window.addEventListener("load",loadCSSFiles);</script>
+  </head>
+  <body ng-app="App" pointer-events-scroll>
+    <div class="wrapper dNtoLoad">
+      <main class="main">
+        <header class="header">
+          <div class="header-top">
+            <div class="container"><a href="./" class="logo">Touch of Europe</a>
+              <div class="authentificition"><a href="sign_in.html" class="sign-in">Sign In</a>
+                <!-- Последующие блоки a.private-office и ul.sub-links - выводить вместе-->
+                <!--a.private-office(href="./private-office.html") Ivan-->
+                <!--ul.sub-links-->
+                <!--    li-->
+                <!--        a(href="./private-office.html") Edit profile-->
+                <!--    li-->
+                <!--        form(method="post" action="#")-->
+                <!--            button Sign out-->
+              </div>
+              <div ng-controller="MiniCartCtrl as mini_cart" ng-init="mini_cart.setProducts([{&quot;link&quot;:&quot;./product-details.html&quot;,&quot;src&quot;:&quot;./images/cart/1.jpg&quot;,&quot;name&quot;:&quot;MASIERO Drylight S11 Outdoor Chandelier&quot;,&quot;price_usd&quot;:800,&quot;price_usd_discont&quot;:273,&quot;price_cad&quot;:700,&quot;price_cad_discont&quot;:279,&quot;quantity&quot;:1},{&quot;link&quot;:&quot;./product-details.html&quot;,&quot;src&quot;:&quot;./images/cart/2.jpg&quot;,&quot;name&quot;:&quot;MASIERO Drylight S12 Outdoor Chandelier&quot;,&quot;price_usd&quot;:1000,&quot;price_usd_discont&quot;:273,&quot;price_cad&quot;:1100,&quot;price_cad_discont&quot;:279,&quot;quantity&quot;:1},{&quot;link&quot;:&quot;./product-details.html&quot;,&quot;src&quot;:&quot;./images/cart/1.jpg&quot;,&quot;name&quot;:&quot;MASIERO Drylight S13 Outdoor Chandelier&quot;,&quot;price_usd&quot;:400,&quot;price_usd_discont&quot;:273,&quot;price_cad&quot;:410.67,&quot;price_cad_discont&quot;:279,&quot;quantity&quot;:1}])" class="mini-cart"><a href="./cart.html"><span ng-bind="mini_cart.getCount()">0</span></a>
+                <div class="inner-mini-cart">
+                  <ul ng-cloak>
+                    <li ng-repeat="product in mini_cart.CartService.products"><a ng-href="{{product.link}}" class="wrapper-img"><img ng-src="{{product.src}}"></a>
+                      <div class="product-info">
+                        <h2><a href="{{product.link}}" ng-bind="product.name"></a></h2><span>Quantity: {{product.quantity}}</span>
+                      </div>
+                    </li>
+                  </ul><a href="./cart.html" class="to-cart">View cart</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <nav class="nav">
+            <div class="container">
+              <ul>
+                <li>
+                  <div class="sub-menu">
+                    <ul>
+                      <li><a href="./category.html" class="active">Modern</a></li>
+                      <li><a href="./category.html">Baskets</a></li>
+                      <li><a href="./category.html">Antique</a></li>
+                      <li><a href="./category.html">Classic</a></li>
+                      <li><a href="./category.html">Maria Theresa</a></li>
+                    </ul>
+                  </div><a href="./category.html" class="active">Lighting</a>
+                </li>
+                <li>
+                  <div class="sub-menu">
+                    <ul>
+                      <li><a href="./category.html">Modern</a></li>
+                      <li><a href="./category.html">Baskets</a></li>
+                      <li><a href="./category.html">Antique</a></li>
+                      <li><a href="./category.html">Classic</a></li>
+                      <li><a href="./category.html">Maria Theresa</a></li>
+                    </ul>
+                  </div><a href="./category.html">Clocks</a>
+                </li>
+                <li>
+                  <div class="sub-menu">
+                    <ul>
+                      <li><a href="./category.html">Modern</a></li>
+                      <li><a href="./category.html">Baskets</a></li>
+                      <li><a href="./category.html">Antique</a></li>
+                      <li><a href="./category.html">Classic</a></li>
+                      <li><a href="./category.html">Maria Theresa</a></li>
+                    </ul>
+                  </div><a href="./category.html">Crystal Tableware</a>
+                </li>
+                <li>
+                  <div class="sub-menu">
+                    <ul>
+                      <li><a href="./category.html">Modern</a></li>
+                      <li><a href="./category.html">Baskets</a></li>
+                      <li><a href="./category.html">Antique</a></li>
+                      <li><a href="./category.html">Classic</a></li>
+                      <li><a href="./category.html">Maria Theresa</a></li>
+                    </ul>
+                  </div><a href="./category.html">Porcelain & China</a>
+                </li>
+                <li><a href="./about.html">About</a></li>
+                <li><a href="./contact.html">Contact Us</a></li>
+              </ul>
+              <div ng-controller="SearchCtrl as vSearch" ng-class="{'active':vSearch.isShowSearch==true}" class="search">
+                <form name="formValidate" novalidate action="./" class="form-validate">
+                  <div class="wrapper-search-block">
+                    <input type="text" name="search" placeholder="Search" ng-model="vSearch.dataForm.search" autocomplete="off" ng-focus="vSearch.isShowSearch=true" ng-blur="vSearch.blurSearch(vSearch.dataForm.search)">
+                  </div>
+                  <button class="send"><span class="fa fa-search"></span></button>
+                  <button class="send-button">find</button><span ng-click="vSearch.resetSearch()" class="fa fa-close close"></span>
+                </form>
+              </div>
+            </div>
+          </nav>
+        </header>
+            <div class="wrapper-breadcrumbs container">
+              <ul class="breadcrumbs animated bounceInRight">
+                <li><a href="./"></a></li>
+                <li><span>cart</span></li>
+              </ul>
+            </div>
+        <section class="cart">
+          <div ng-controller="CartCtrl as cart" ng-init="cart.setStep(0)" class="container">
+            <h1 ng-if="cart.step==0" class="cart__title">Your Shopping Cart</h1>
+            <h1 ng-if="cart.step==1" class="cart__title">Enter Your Shipping Address</h1>
+            <div ng-cloak class="wrapper-block">
+              <div ng-class="{'step-2':cart.step==1}" class="order-details">
+                <h2 class="order-details__title">Order Details {{cart.step}}</h2>
+                <ul class="order-details__inner-block">
+                  <li class="order-details__item">
+                    <div class="list-item">
+                      <h3 class="list-item__title">Subtotal</h3>
+                      <div class="list-item__price-block-container">
+                        <div class="list-item__price-block">
+                          <div><span class="list-item__currency list-item__text-style">USD</span><span class="list-item__currency-count list-item__text-style list-item__text-style-increase">${{cart.subSum(cart.CartService.products,'price_usd')|round2|splitSpace}}</span></div>
+                          <div class="list-item__currency-discount list-item__text-style">
+                            <del>${{cart.subSum(cart.CartService.products,'price_usd_discont')|round2|splitSpace}}</del>
+                          </div>
+                        </div>
+                        <div class="list-item__price-block">
+                          <div><span class="list-item__currency">CAD</span><span class="list-item__currency-count list-item__text-style-increase">${{cart.subSum(cart.CartService.products,'price_cad')|round2|splitSpace}}</span></div>
+                          <div class="list-item__currency-discount">
+                            <del>${{cart.subSum(cart.CartService.products,'price_cad_discont')|round2|splitSpace}}</del>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="order-details__item">
+                    <div class="list-item">
+                      <h3 class="list-item__title">Shipping</h3>
+                      <div class="list-item__price-block-container">
+                        <div class="list-item__price-block">-</div>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="order-details__item">
+                    <div class="list-item">
+                      <h3 class="list-item__title">Tax</h3>
+                      <div class="list-item__price-block-container">
+                        <div class="list-item__price-block">-</div>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="order-details__item">
+                    <div class="discont-block">
+                      <h1 class="discont-block__title">Discount Codes</h1>
+                      <div class="discont-block__form">
+                        <input type="text" ng-model="cart.discount_code" class="discont-block__input">
+                        <!--button.discont-block__button(ng-click="cart.getDiscount('./controller.php','get')") Apply Coupon-->
+                        <button ng-click="cart.getDiscount(cart.discount_code,'./json/discount.json','get')" class="discont-block__button">Apply Coupon</button>
+                      </div>
+                    </div>
+                  </li>
+                  <li ng-cloak class="order-details__item">
+                    <div class="list-item">
+                      <h3 class="list-item__title">Total</h3>
+                      <div class="list-item__price-block list-item__price-block--half">
+                        <div><span class="list-item__currency list-item__currency--offset-left">USD</span><span class="list-item__currency-count list-item__currency-count--size-up list-item__currency-count--grey list-item__currency-count--offset">${{cart.totalSum(cart.CartService.products,'price_usd',cart.discount_rate||0)|round2|splitSpace}}</span></div>
+                        <div class="list-item__currency-discount list-item__currency-discount--size-up list-item__currency--offset-left">
+                          <del>${{cart.totalSum(cart.CartService.products,'price_usd_discont',cart.discount_rate||0)|round2|splitSpace}}</del>
+                        </div>
+                      </div>
+                      <div class="list-item__price-block list-item__price-block--half">
+                        <div><span class="list-item__currency list-item__currency--offset-left">CAD</span><span class="list-item__currency-count list-item__currency-count--size-up list-item__currency-count--white list-item__currency-count--offset">${{cart.totalSum(cart.CartService.products,'price_cad',cart.discount_rate||0)|round2|splitSpace}}</span></div>
+                        <div class="list-item__currency-discount list-item__currency-discount--size-up list-item__currency--offset-left">
+                          <del>${{cart.totalSum(cart.CartService.products,'price_cad_discont',cart.discount_rate||0)|round2|splitSpace}}</del>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                </ul><a ng-if="cart.step==0" ng-click="cart.step=1" class="order-details__link order-details__inner-block order-details__link--next">Proceed to Checkout</a><a ng-if="cart.step==0" href="./product-details.html" class="order-details__link order-details__inner-block order-details__link--prev">Continue Shopping</a>
+              </div>
+              <table ng-if="cart.step==0" class="product-list">
+                <tr>
+                  <th class="product-list__title-list">Your Items</th>
+                  <th></th>
+                  <th class="product-list__title-list">Price</th>
+                  <th class="product-list__title-list">Qty</th>
+                  <th class="product-list__title-list">Remove</th>
+                </tr>
+                <tr ng-repeat="product in cart.CartService.products" class="product-list__item">
+                  <td><a ng-href="{{product.link}}" class="product-list__item__wrapper-img"><img ng-src="{{product.src}}"></a></td>
+                  <td><a href="{{product.link}}" ng-bind="product.name" class="product-list__item__link"></a></td>
+                  <td>
+                    <div class="product-list__item__price">
+                      <div><span>USD</span><span>${{product.price_usd}}</span></div>
+                      <div>
+                        <del>${{product.price_usd_discont}}</del>
+                      </div>
+                    </div>
+                    <div class="product-list__item__price">
+                      <div><span>CAD</span><span>${{product.price_cad}}</span></div>
+                      <div>
+                        <del>${{product.price_cad_discont}}</del>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <count-products quantity="product.quantity" is-show-free-sbhipping="false"></count-products>
+                  </td>
+                  <td><a ng-click="cart.remove(product)" class="fa fa-trash"></a></td>
+                </tr>
+              </table>
+              <div ng-if="cart.step==1" class="cart-execution">
+                <form id="form-cart" name="formValidate" ng-controller="App.form.FormCtrl as vm" ng-init="vm.action='./controller.php'" action="./" novalidate class="form-validate">
+                  <div class="wrapper-add-line">
+                    <input id="name_cart" type="text" name="name_cart" ng-model="vm.dataForm.data.name_cart" autocomplete="off" required class="name_cart">
+                    <label for="name_cart"><span>Full Name:</span></label><span ng-click="vm.addAddress('address_cart',vm.address_count)" class="add-line">+ Add a New Address</span>
+                  </div>
+                  <div ng-repeat="address in vm.dataForm.data.address_cart">
+                    <input id="{{address.name}}" type="text" name="{{vm.dataForm.data.address_cart[$index].name}}" ng-model="vm.dataForm.data.address_cart[$index].value" autocomplete="off" class="address-input">
+                    <label for="{{address.name}}"><span>Address Line {{$index+1}}:</span></label>
+                  </div>
+                  <div>
+                    <input id="city" type="text" name="city" ng-model="vm.dataForm.data.city" autocomplete="off" required class="city">
+                    <label for="city"><span>City:</span></label>
+                  </div>
+                  <div>
+                    <input id="scp" type="text" name="scp" ng-model="vm.dataForm.data.scp" autocomplete="off" required class="scp">
+                    <label for="scp"><span>State/County/Province:</span></label>
+                  </div>
+                  <div>
+                    <input id="postal_code" type="text" name="postal_code" ng-model="vm.dataForm.data.postal_code" autocomplete="off" required class="postal_code">
+                    <label for="postal_code"><span>Postal Code</span></label>
+                  </div>
+                  <div>
+                    <input id="country" type="text" name="country" ng-model="vm.dataForm.data.country" autocomplete="off" required class="country">
+                    <label for="country"><span>Country</span></label>
+                  </div>
+                  <div>
+                    <input id="phone_number" type="text" name="phone_number" ng-model="vm.dataForm.data.phone_number" autocomplete="off" required class="phone_number">
+                    <label for="phone_number"><span>Phone Number</span></label>
+                  </div>
+                  <div>
+                    <input id="extension" type="text" name="extension" ng-model="vm.dataForm.data.extension" autocomplete="off" required class="extension">
+                    <label for="extension"><span>Extension</span></label>
+                  </div>
+                  <div class="wrapper-checkbox">
+                    <input id="access" type="checkbox">
+                    <label for="access">Set as default shipping address</label>
+                  </div>
+                  <div class="wrapper-send continue"><a ng-click="vm.send(vm.dataForm,formValidate,vm.action)" class="send"><span>Continue</span></a></div>
+                  <div><span ng-click="cart.step=0" class="back">Back</span></div>
+                  <input type="hidden" name="cart_data" value="{{cart}}">
+                  <input type="hidden" name="task" ng-init="vm.dataForm.hidden.task=&quot;cart-info&quot;" ng-model="vm.dataForm.hidden.task">
+                </form>
+                <h2 class="cart-execution-title">Billing & Payment</h2>
+                <ul class="list-payments">
+                  <li>
+                    <div class="wrapper-img"><img src="./images/paypal.png" width="82" height="22"></div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+    <footer class="footer">
+      <section class="wrapper-links-block">
+        <div class="container">
+          <div class="block-links">
+            <h1>Company</h1>
+            <ul>
+              <li><a href="">About Houzz</a></li>
+              <li><a href="">In the News</a></li>
+              <li><a href="">Press Info</a></li>
+              <li><a href="">Careers</a></li>
+              <li><a href="">Contact Us</a></li>
+              <li><a href="">Terms of Use</a></li>
+              <li><a href="">Privacy Policy</a></li>
+            </ul>
+          </div>
+          <div class="block-links">
+            <h1>Explore houzz</h1>
+            <ul>
+              <li><a href="">Buttons & Badges</a></li>
+              <li><a href="">Mobile Apps</a></li>
+              <li><a href="">Advertise</a></li>
+              <li><a href="">For Professionals</a></li>
+              <li><a href="">Sell on Houzz</a></li>
+              <li><a href="">Write a Review</a></li>
+              <li><a href="">FAQs</a></li>
+            </ul>
+          </div>
+          <div class="block-links contacts-block">
+            <h1>Contact</h1>
+            <ul>
+              <li><a href="mailto:info@lightingdeluxe.com">info@lightingdeluxe.com</a></li>
+              <li><a href="tel:+1-800-667-452">Australia: 1-800-667-452</a></li>
+              <li><a href="tel:+1-888-642-8669">USA / Canada: 1-888-642-8669</a></li>
+              <li><a href="tel:+49-351-84710961">+49-351-84710961</a></li>
+            </ul>
+            <ul>
+              <li><span>Lichtkultur GmbH</span><span>Flösserstr. 19a</span><span>01139 Dresden</span></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+      <section class="footer-middle">
+        <div class="container">
+          <div class="middle-block payment">
+            <h1>Payment Methods</h1>
+            <ul>
+              <li><a href="" class="fa fa-cc-paypal"></a></li>
+            </ul>
+          </div>
+          <div class="middle-block connect">
+            <h1>Connect with us</h1>
+            <ul>
+              <li><a href="" class="fa fa-twitter"></a></li>
+              <li><a href="" class="fa fa-linkedin"></a></li>
+              <li><a href="" class="fa fa-vk"></a></li>
+              <li><a href="" class="fa fa-facebook-f"></a></li>
+              <li><a href="" class="fa fa-google-plus"></a></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+      <section class="footer-bottom">
+        <div class="container">
+          <div class="copyright"><span>©</span>2015 «Touch of Europe»</div><a href="http://tutmee.ru" class="firm-logo">
+            <div><span>Создание дизайна</span><span>и разработка сайтов</span><span>LTD Tutmee.ru</span></div>
+            <div><img src="./images/firm-logo.png" width="214" height="68"></div></a>
+        </div>
+      </section>
+    </footer>
+    <!--button.up(move-up)-->
+    <!--include ./includes/popups.jade-->
+    <!--include ./includes/thanks.jade-->
+    <!--include ./includes/preloader.jade-->
+  </body>
+</html>
+<script src="./scripts/vendors/preloadjs-0.6.1.min.js" defer></script>
+<script src="./scripts/vendors/snap.svg.js" defer></script>
+<script src="./scripts/bundle.js" defer></script>
+<!--script(src="http://localhost:8080/webpack-dev-server.js" defer)-->
+<!--script(src="http://localhost:8080/bundle.js" defer)-->
